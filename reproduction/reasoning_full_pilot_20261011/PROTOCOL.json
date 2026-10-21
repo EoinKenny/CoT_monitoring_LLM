@@ -1,0 +1,37 @@
+{
+  "seed": 20261011,
+  "per_class_per_dataset": 16,
+  "datasets": 10,
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "judges": [
+    "qwen",
+    "gemma"
+  ],
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "outputs": [
+    "hard",
+    "probability"
+  ],
+  "base_cases": 320,
+  "calls_per_judge": 1920,
+  "total_new_calls": 3840,
+  "selection": "Hash-ranked random selection within dataset/gold-class/backbone from existing frozen test pool. Near-equal rotating backbone quotas sum to16/class/dataset. Preserve source memberships and no training changes. This is32 total per dataset across backbones, not32 for every backbone.",
+  "balance": "Gold labels used only in sample selection and evaluation. No target gold label enters messages.",
+  "reasoning": "Native thinking enabled, seed20261001, greedy, batch16, max generated tokens2048. No additional warmup requests.",
+  "missing": "Retain cutoff/invalid generations without automatic retries. Report coverage and worst/best metrics.",
+  "replay": "Source prompt hashes, exact native nonthinking render checks, exact frozen off-control membership, resumable checksummed committed batches; stop on ambiguous attempts.",
+  "evaluation": "Balanced-pilot judge-only and pipeline metrics. Fixed probability threshold50 and frozen original validation-selected probe threshold. No tuning on these test cases. Existing off-mode controls reused; native on-mode final decoding differs from constrained off-mode and is documented.",
+  "comparison": "Matched comparisons across conditions and on/off; paired dataset/class-stratified source-group-cluster bootstrap. Exploratory descriptive pilot, not full-population performance.",
+  "safety": "20GiB free-disk reserve; preserve keepalives and existing experiment artifacts.",
+  "count_assumption": "No answer received to optional count clarification before preparation; use smaller interpretation32 total per dataset as stated to user."
+}

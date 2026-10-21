@@ -1,0 +1,19 @@
+{
+  "dataset": "FAVA",
+  "backbone": "/home/ubuntu/.cache/huggingface/hub/models--meta-llama--Llama-3.2-1B-Instruct/snapshots/9213176726f574b556790deb65791e0c5aa438b6",
+  "block_index": 10,
+  "comparison": [
+    "original balanced undersample + balanced class weights",
+    "all eligible training + balanced class weights"
+  ],
+  "C": 0.01,
+  "threshold": "Maximum validation positive-class F1; highest-threshold tie break",
+  "selection": "User-requested winner by test F1, exploratory and not an independent confirmatory test",
+  "train_counts": {
+    "0": 391,
+    "1": 17210
+  },
+  "reused_vectors": 13084,
+  "new_training_vectors": 16819,
+  "original_metadata_sha256": "8d240160d163e0390f7b1f8cd8c70d772716c9cefe23548627ff6350db1bc094"
+}

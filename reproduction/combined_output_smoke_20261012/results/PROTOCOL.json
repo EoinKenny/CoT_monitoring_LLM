@@ -1,0 +1,28 @@
+{
+  "n_per_judge_per_format": 32,
+  "batches_per_format": 2,
+  "batch_size": 16,
+  "formats": [
+    "hard",
+    "probability",
+    "combined"
+  ],
+  "combined_instruction": "Return two integers separated by a comma: the predicted class (0 or 1), then your estimated probability from 0 to 100 that the CURRENT conversation belongs to the positive class defined by the task. 0 means certainly negative, 50 means equally likely, and 100 means certainly positive. The probability is for the positive class, not confidence in your predicted label. Format: label,probability. Do not include spaces, explanations, or any other text.",
+  "combined_regex": "[01],(?:0|[1-9][0-9]?|100)",
+  "warmup": "One explicit warmup request per format, separately recorded and excluded from steady timing.",
+  "order": [
+    [
+      "hard",
+      "probability",
+      "combined"
+    ],
+    [
+      "combined",
+      "probability",
+      "hard"
+    ]
+  ],
+  "prefix_caching": false,
+  "seed": 20261001,
+  "no_retries": true
+}

@@ -1,0 +1,15 @@
+# Frozen sampled ten-dataset evaluation
+
+Backbone, balanced training memberships, validation splits, validation-selected thresholds, L2 settings and probe artifacts are inherited unchanged from ten-dataset-full-20261002. Every source metadata file and probe artifact is archived under provenance on the instance, with SHA256 checksums and source scripts. Private dataset text stays on the instance.
+
+Select at most 500 probe-positive test IDs per dataset by ascending SHA256 of UTF-8 `20261002 + NUL + dataset + NUL + sample_id`, with sample ID as tie breaker. This selection uses no label, correctness, judge outcome or completion-order information. SAMPLE_FROZEN.json is authoritative. The same IDs and order are used across all three models and all three conditions.
+
+Models and revisions are inherited in each approved_config.json. Native rendered prompts and exact token IDs are archived. Semantic instruction hashes match across models within each condition. The runner records package versions, batch size, engine settings and one-token greedy constrained decoding. Original complete rendered prompts and tokens must match for reuse; every reused judgment links its source file and checksum. The stopped full run is preserved, not overwritten or silently resumed.
+
+Run prepare.py once, then supervise.py once using the existing experiment Python environments. Preparation is exclusive and refuses overwrite. The supervisor runs Qwen, Gemma and Llama, each with baseline, saliency and nearest-neighbour prompts. It records failure without retrying. A new explicitly recorded attempt is required after failure. No automatic reruns or replacement of outputs.
+
+Evaluation reports exact full-test probe metrics, observed flagged-sample LLM metrics, and estimated full-test cascades. Gold-class post-stratification scales sampled judge acceptance rates to known full flagged positive/negative counts, then adds unchanged unflagged false negatives/true negatives. Selection itself is not class-balanced. Confidence intervals use 2000 paired bootstrap replicates within sampled gold-class strata, with census strata fixed. These conditional row-level intervals are approximate, ignore correlation among related source examples, and omit finite-population correction for sampled strata. They do not capture training or inference nondeterminism. A missing sampled gold class stops evaluation rather than imputing a rate.
+
+All conditions share bootstrap resamples; final output includes paired F1 changes against baseline and nearest-neighbour versus saliency. These are positive-only cascade experiments, not all-test standalone LLM evaluation. FAVA class imbalance and HaluEval length shortcuts remain limitations. Existing pilot/test inspection means results are exploratory.
+
+Fixed data and configuration support experiment reconstruction, not guaranteed bitwise fresh vLLM outputs. Saved raw outputs and their provenance are the authoritative record. Final results.json and RESULTS.md are generated only after all nine conditions finish; PIPELINE_COMPLETED denotes full completion.

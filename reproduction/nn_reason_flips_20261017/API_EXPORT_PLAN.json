@@ -1,0 +1,19 @@
+{
+  "requested": "2026-10-17",
+  "trigger": "After the local flip-focused reasoning collection finishes and its coverage is verified",
+  "models": [
+    "claude4.5-sonnet",
+    "claude4.8-opus",
+    "gpt-4o",
+    "gpt-astra"
+  ],
+  "model_identity": "Preserve prior API aliases. Record resolved backend snapshot and inference settings separately; do not invent mappings.",
+  "selection": "For each API model independently, select its original test cases with valid paired baseline and nearest probabilities whose classifications differ at the same cutoff50. Include both helpful and harmful flips; all five backbones and ten datasets. Preserve original IDs and weights privately. Exclude missing/ambiguous original comparisons with explicit counts. Do not substitute local-judge flip selection.",
+  "prompts": "Reuse exact previous API NN system/user messages, changing only output contract to the approved probability-first then VERY brief reasoning-after contract. No target gold labels, helpful/harmful categories, prior control scores or prior NN scores in dispatched prompts.",
+  "settings": "256 output tokens, temperature0 where supported, native reasoning disabled where supported. Record provider restrictions and actual settings. First integer line scored; retain malformed/truncated responses and raw output.",
+  "package": "Transfer ZIP with compressed prompts CSV, README for API-server agent, minimal response CSV schema and validator, checksummed manifests; avoid unnecessary duplicate prompt text. Include model routing per prompt. Minimal response columns: prompt_id,model,probability,raw_response,status,finish_reason. Request model/version/config metadata in a separate manifest and preserve request journal.",
+  "execution": "Prepare export only; no API calls or messaging external agents. Notify user with ZIP, per-model counts and exclusions.",
+  "source_results": "reproduction/api_results_20261015",
+  "local_experiment": "/home/ubuntu/experiments/nn-reason-flips-20261017",
+  "paused_superseded_run": "/home/ubuntu/experiments/nn-reason-after-20261016"
+}

@@ -1,0 +1,26 @@
+{
+  "model": "mistralai/Mistral-Small-4-119B-2603-NVFP4",
+  "revision": "45331841b631f4e281df8e959ea3cc9beb84298a",
+  "n_calls": 32,
+  "n_unique_cases": 16,
+  "batch_size": 16,
+  "reasoning_effort": "none",
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "modes": [
+    "hard",
+    "probability"
+  ],
+  "seed": 20261001,
+  "selection_seed": 20261011,
+  "description": "One batch of 16 hard labels and one batch of probabilities on the same 16 cases, covering all ten datasets and five backbones. Eight positives and eight negatives. Three explanation conditions assigned across cases (6/5/5), not a powered condition comparison. Existing frozen task messages are reused verbatim, with the official Mistral chat template. Gold labels remain in selection/evaluation only.",
+  "test_only": true,
+  "no_full_run_authorized_by_this_script": true,
+  "minimum_free_gib": 20,
+  "hard_max_tokens": 1,
+  "probability_max_tokens": 8,
+  "temperature": 0
+}

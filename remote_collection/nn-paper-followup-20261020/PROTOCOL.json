@@ -1,0 +1,94 @@
+{
+  "study": "Focused paper follow-up",
+  "created": "2026-10-20",
+  "seed": 20261020,
+  "backbones": [
+    "qwen",
+    "llama70"
+  ],
+  "judges": [
+    "qwen122",
+    "gemma",
+    "glm"
+  ],
+  "datasets": [
+    "aegis",
+    "beavertails",
+    "toxicchat",
+    "toxigen",
+    "fava",
+    "halueval",
+    "ragtruth"
+  ],
+  "selection_reason": "Two different backbone families and three established local judge families; focused feasibility study, not a new best-combination selection.",
+  "knn": {
+    "reference_pool": "Frozen training split; exclude target group",
+    "representation": "Frozen training-standardized activation embeddings",
+    "metrics": [
+      "cosine",
+      "euclidean"
+    ],
+    "k": [
+      1,
+      5,
+      15,
+      51
+    ],
+    "scores": "Uniform neighbour label proportion",
+    "threshold_grid": "0..101 percent; select configuration with validation weighted F1, tie higher cutoff then deterministic method name",
+    "sample": "All existing 500 validation and 500 test selected cases per cell; inverse inclusion weights required",
+    "evaluation": "Design-weighted direct-classifier metrics, compare saved linear probe on same cases; no test tuning"
+  },
+  "retrieval": {
+    "targets": "Hash-selected 100 validation and100 test per backbone/dataset from parent selected500; outcome-independent selection; inherited design weight / .2",
+    "references": [
+      "activation cosine nearest",
+      "generic semantic cosine nearest"
+    ],
+    "encoder": "sentence-transformers/all-MiniLM-L6-v2 exact revision frozen before use; token-mean chunks cover entire serialized conversation, no full-text truncation",
+    "prompt": "Same neutral retrieved-reference wording and numeric label descriptions for BOTH new retrieval arms, exact original task and probability instruction. Retain neighbour text, label, frozen probe prediction. Original NN/control results may be reused only as separately labelled prior-prompt comparisons.",
+    "expected_calls": 16800
+  },
+  "confirmation": {
+    "targets": "Up to100 unused val and100 unused test per backbone/dataset, exclude groups in available prior selected_flags manifests across experiments; record inventory and exclusions. No assertion of a fresh dataset/distribution.",
+    "conditions": [
+      "baseline",
+      "activation_reference",
+      "semantic_reference"
+    ],
+    "weights": "Eligible remaining population / selected count per split/cell",
+    "shortage": "Keep all available without replacement; report missing/short cells, never substitute previously used cases",
+    "maximum_calls": 25200
+  },
+  "controlled": {
+    "targets": 32,
+    "conditions": [
+      "baseline",
+      "relevant_same_class",
+      "relevant_opposite_class",
+      "irrelevant",
+      "label_conflict"
+    ],
+    "calls": 480,
+    "provenance": "Assistant-authored explicit-rule diagnostic minimal pairs, not benchmark gold, not independently human-validated; no invented probe scores",
+    "scope": "Endorsement versus condemnation and possibility versus certainty; lexical variants share a template and are not independent mechanism replications",
+    "role": "Initial collection and plumbing pilot before a larger independently checked intervention study"
+  },
+  "sampling": {
+    "temperature": 0,
+    "seed": 20261001,
+    "max_tokens": 8,
+    "output": "Single positive-class probability integer0..100",
+    "native_thinking": false,
+    "batch": "Existing per-judge16/4/8 settings"
+  },
+  "analysis": {
+    "primary": "Fixed50 probe and judge; direct classifier comparisons separately",
+    "secondary": "Validation-only joint cutoffs, share cutoff pair across explanation arms under each anchor; average paired deltas across anchors; compare precision-recall, input tokens and measured latency",
+    "uncertainty": "Paired target/group-cluster uncertainty; synthetic template families not independent trials",
+    "causal_limits": "Retrieval treatment causal within target, interpretation of why it helps requires independent source checks; expressed rationales not internal reasoning"
+  },
+  "integrity": "Separate root, never alter old outputs, no automatic retry of attempted/ambiguous batches, raw saved before parse, all invalid outcomes retained, finite/input/hash checks,20GiB reserve, no numerical agreement gates",
+  "human_review": "Pending independent human readers; prepare a blinded packet, do not claim assistant-authored labels are human labels",
+  "launch": "One controller for controlled then encoder preparation then natural calls; separate CPU kNN process. First two batches per judge are smoke checked and retained."
+}

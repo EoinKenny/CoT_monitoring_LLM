@@ -1,0 +1,26 @@
+{
+  "analysis": "NN/control decision changes and proximity to boundary",
+  "primary": "held-out test, all ten judges common-valid across baseline/saliency/NN, original frozen probe-only validation-F1 referral gate, same judge threshold 50 for both conditions",
+  "four_categories": [
+    "correct_to_correct",
+    "correct_to_wrong",
+    "wrong_to_correct",
+    "wrong_to_wrong"
+  ],
+  "facets": [
+    "true-positive probe flags",
+    "false-positive probe flags"
+  ],
+  "measurements": [
+    "nearest-neighbour cosine similarity",
+    "probe logit distance to original threshold, divided by coefficient L2 norm if available",
+    "control judge absolute score distance from 50 (uncertainty proxy, not embedding geometry)"
+  ],
+  "aggregation": "inverse inclusion weights; equal mass per dataset/backbone/judge; matched contrasts within model/backbone/dataset/gold/control correctness; sensitivity excluding GLM/Mistral/OLMo and using fixed baseline validation-tuned thresholds",
+  "limits": [
+    "API common-valid subset only",
+    "same target can appear across backbones and judges",
+    "no inference or threshold fitting",
+    "high NN cosine is not distance to classifier boundary"
+  ]
+}

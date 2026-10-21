@@ -1,0 +1,9 @@
+{
+ "scope": "Six local judges, five backbones, ten datasets; 1-NN probability-first VERY brief reason-after, test-only diagnostic subset.",
+ "selection": "Every frozen sampled test case where prior probability-only baseline and nearest predictions differ at the same fixed threshold 50. No validation cases. Both helpful and harmful flips retained; selection does not depend on new output.",
+ "inference": "Identical prompts, token IDs, model revisions, engine configuration, batches sizes, seed20261001, temperature0 and max_tokens256 from the original reasoning study. Native thinking disabled. New subset batching documented; vLLM numeric replay not guaranteed.",
+ "reuse": "Reuse exact previously saved reasoning outputs after checksum, input-token and model/config verification. Preserve ambiguous previously attempted cases as missing, never resubmit them. Original data and runs untouched.",
+ "failures": "Blank, repetitive, contradictory, or truncated reasoning does not invalidate a valid first probability. Invalid first scores remain null. No retry of attempted inference. Up to three process starts per judge; unchanged-progress watchdog thirty minutes. Disk below20GiB pauses safely. Integrity failures retained and reported, no silent dropped cases.",
+ "analysis": "Explain selected helpful/harmful original flips; also record whether new first probability reproduces the original NN classification. Expressed post-answer rationales are diagnostic evidence, not proof of internal reasoning. This outcome-selected test subset is not an unbiased estimate of full-test F1. No test threshold tuning. Preserve original design weights as metadata.",
+ "authorization": "User narrowed the ongoing run to test instances where NN flipped control on2026-10-17. Larger collection paused with outputs preserved."
+}

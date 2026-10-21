@@ -1,0 +1,45 @@
+"""Read-only inventory and immutable corpus cross-check; no inference."""
+from pathlib import Path
+import csv,gzip,json,hashlib,collections,datetime,re
+P=Path(__file__).resolve().parents[1];R=Path(__file__).resolve().parent
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+f=P/'nn_reason_flips_20261017/FINAL_ANALYSIS_SNAPSHOT.json.gz'
+snapshot=json.load(gzip.open(f,'rt'));rows=snapshot['rows']
+receipt=json.loads((f.parent/'FINAL_COLLECTION_RECEIPT.json').read_text())
+expected=json.loads((f.parent/'final_analysis/summary.json').read_text())['source_sha256']
+assert sha(f)==expected
+assert len(rows)==receipt['completion']['planned']==35919
+assert len({(r['judge'],r['backbone'],r['sample_id']) for r in rows})==len(rows)
+assert all(r['split']=='test' for r in rows)
+assert all((r['control_probability']>=50)!=(r['nn_probability']>=50) for r in rows)
+assert all(((r['nn_probability']>=50)==r['true_label'])==(r['flip_type']=='helped') for r in rows)
+annpath=P/'nn_mechanism_agreement_20261019/results/joined_annotations.csv.gz'
+with gzip.open(annpath,'rt') as h:ann={(r['backbone'],r['sample_id']):r for r in csv.DictReader(h)}
+joined=[]
+for r in rows:
+ a=ann[r['backbone'],r['sample_id']]
+ assert r['true_label']==int(a['true_label']) and r['dataset']==a['dataset']
+ joined.append(dict(r,contrast=a['majority_important_contrast'],similarity=a['majority_labelled_similarity']))
+count=lambda rr:dict(n=len(rr),nonempty_rationales=sum(bool(r.get('reasoning','').strip()) for r in rr),valid_probabilities=sum(type(r['reason_probability']) is int and 0<=r['reason_probability']<=100 for r in rr),capped=sum(r['finish_reason']=='length' for r in rr),helped=sum(r['flip_type']=='helped' for r in rr),harmed=sum(r['flip_type']=='harmed' for r in rr))
+strata=[]
+for scope,rr in [('all10',joined),('toxicity4',[r for r in joined if r['dataset'] in ['aegis','beavertails','toxicchat','toxigen']]),('other6',[r for r in joined if r['dataset'] not in ['aegis','beavertails','toxicchat','toxigen']])]:
+ for feat in ['contrast','similarity']:
+  for value in sorted({r[feat] for r in rr}):
+   z=[r for r in rr if r[feat]==value]
+   if z:strata.append(dict(scope=scope,feature=feat,value=value,**count(z)))
+older=[]
+for rel in ['answer_changes/snapshot.json.gz','examples/trace_snapshot.json']:
+ p=f.parent/rel;x=json.load(gzip.open(p,'rt') if p.suffix=='.gz' else p.open());rs=x['rows'] if isinstance(x,dict) and 'rows' in x else x
+ older.append(dict(path=str(p),rows=len(rs),sha256=sha(p),role='Earlier interim or example snapshot; use final snapshot to avoid duplicate counting.'))
+api=P/'api_results_20261015/responses.csv';apicount=collections.Counter();prefix=collections.Counter();words=0
+with api.open() as h:
+ for r in csv.DictReader(h):
+  apicount[(r['model'],r['status'])]+=1;prefix[r['prompt_id'].split('_')[0]]+=1
+  words+=r['status']=='ok' and len(r['response'].split())>=3
+out=dict(checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),local_inventory_complete=True,source_integrity=dict(final_snapshot_sha256=sha(f),matches_prior_final_analysis_receipt=True,completion_counts_match=True,all_ids_unique=True,all_original_fixed50_flips=True,annotation_join_complete=True,annotations_sha256=sha(annpath)),primary_corpus=dict(path=str(f),scope='Probability first then VERY brief expressed rationale; native thinking disabled; greedy; 256 generated-token cap.',selection='Each of six local judges own original probability-only control-vs-NN test flips at common50; no original unchanged control-vs-NN cases or validation cases.',**count(rows),unique_target_ids=len({r['sample_id'] for r in rows}),unique_backbone_target_contexts=len({(r['backbone'],r['sample_id']) for r in rows}),by_judge={j:count([r for r in rows if r['judge']==j]) for j in sorted({r['judge'] for r in rows})},raw_fields=['generated_text','reasoning','reason_probability','finish_reason','generated_tokens','output_status'],raw_batch_files_available_locally=False,raw_verification='Local final snapshot SHA matches prior analysis. Prior final collection receipt records checksum-verified remote coverage; remote raw batch checksums cannot currently be reverified.',completion_receipt=str(f.parent/'FINAL_COLLECTION_RECEIPT.json'),frozen_inputs_manifest=str(f.parent/'ARTIFACTS_FROZEN.json'),all_available_majority_label_strata=strata),other_collections=[dict(name='Reasoning first, 512-token follow-up',local_root=str(P/'nn_reason_first_512_20261017'),raw_text_available_locally=False,planned=35919,remote_root='/home/ubuntu/experiments/nn-reason-first-512-20261017',evidence='Protocol, launch verification and measured ETA available; no local completed outputs. Current completion unknown because SSH times out.',token_budget_provenance='640 preserved 256-token cases plus35279 intended512-token cases; do not silently call every case512.',selection='Same35919 original fixed50 flips.'),dict(name='Broader probability-first study',local_root=str(P/'nn_reason_after_20261016'),raw_text_available_locally=False,planned=300000,remote_root='/home/ubuntu/experiments/nn-reason-after-20261016',evidence='Intentionally paused upon narrowing to flips;478 saved responses were verified and reused in primary flip corpus. Broader other saved cases remote-only; exact current count unverified.',selection='Originally500validation+500test cases per backbone/dataset across sixlocaljudges; do not assume completion.'),dict(name='Native-thinking pilot',local_root=str(P/'reasoning_full_pilot_20261011'),raw_text_available_locally=False,planned=3840,completed_receipt_available=True,local_valid_by_judge={'qwen':1900,'gemma':1911},max_tokens=2048,evidence='Local COMPLETED.json, RESULTS.json and protocol; no local raw native-thinking outputs.',selection='320total gold-balanced sampled contexts, Qwen/Gemma, baseline/saliency/nearest and hard/probability modes; substantially different intervention from post-answer rationales.')],api=dict(reasoning_export=str(f.parent/'api_nn_flip_reasoning_20261017.zip'),reasoning_calls_requested=7122,unique_prompts=5623,returned_reasoning_outputs_locally_found=False,previous_probability_results=str(api),previous_rows=sum(apicount.values()),previous_prompt_prefix_counts=dict(prefix),previous_successful_responses_with_3_or_more_words=words,note='Existing600000 API rows are previous probability-only s50 requests, not returned probability-first rationale-study responses. No successful row has3or morewords; error texts are not rationales.'),earlier_local_snapshots=older,remote_check=dict(host='ec2-52-14-51-0.us-east-2.compute.amazonaws.com',read_only=True,attempts=1,connect_timeout_seconds=15,result='SSH port22 Operation timed out, exit255',modified_remote_state=False),interpretation_limits=['Expressed rationales are retrospective reports, not proof of causal internal reasoning.','Original helpful/harmful classification and new rationale-prompt classification must be separated; only28220new decisions reproduce original NN.','Most of available corpus is probability-first. Capped valid first probabilities remain scored; incomplete rationale text remains marked.','Unknown remote reasoning-first/broader outputs must be reported as unavailable, not inferred absent or complete.','This selection excludes originally unchanged decisions; mechanisms and proportions cannot be generalized to full-test population without accounting for selection.'])
+(R/'inventory.json').write_text(json.dumps(out,indent=2)+'\n')
+lines=['RATIONALE CORPUS INVENTORY',f"Verified local final snapshot: {len(rows):,} rows;35,917 nonempty rationales/valid first probabilities;2 ambiguous missing;516 capped.",f"SHA256 {sha(f)}",'Six local judges; five backbones; ten datasets. Each judge own original fixed50 test flips only.','Primary file: '+str(f),'All 35,919 rows join to existing mechanism annotations; a few majority annotation cells are unresolved.','', 'MAJORITY ANNOTATION COVERAGE (raw rows, not independent samples)']
+for q in strata:lines.append(f"{q['scope']} {q['feature']}={q['value']}: {q['n']} rows; {q['nonempty_rationales']} rationales; helped={q['helped']}, harmed={q['harmed']}; capped={q['capped']}")
+lines+=['','REMOTE/ABSENT LOCAL OUTPUTS','Reasoning-first512: launch/ETA/protocol only locally; full current completion unknown.','Broad probability-first: intentionally paused; primary corpus already reuses478saved outputs. Other saved raw outputs remote-only.','Native-thinking pilot:3840calls completed per local receipt, but raw thinking traces not mirrored.','One bounded read-only SSH attempt timed out; no remote mutations or new inference.','API rationale export exists for7122requests, but no returned rationale collection found. Existing600000API responses are probability-only; successful responses do not contain>=3words.','Use final snapshot, not interim subsets, to avoid double counting. Prior full raw checksums recorded by final collection receipt; current local snapshot hash freshly matches its original analysis receipt.']
+(R/'inventory.txt').write_text('\n'.join(lines)+'\n')
+print('\n'.join(lines))

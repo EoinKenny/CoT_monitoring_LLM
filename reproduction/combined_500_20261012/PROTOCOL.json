@@ -1,0 +1,39 @@
+{
+  "created": "2026-10-12",
+  "judges": [
+    "qwen",
+    "gemma",
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122"
+  ],
+  "excluded_judge": "llama",
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "datasets": 10,
+  "validation_per_pair": 500,
+  "test_per_pair": 500,
+  "source_cases": "original frozen 500-per-split full-threshold sweep; no new sampling",
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "output": "label,probability; two integers, label 0/1 and positive-class probability 0..100",
+  "calls_per_judge": 150000,
+  "total_calls": 900000,
+  "sampling": {
+    "temperature": 0,
+    "seed": 20261001,
+    "max_tokens": 16,
+    "regex": "[01],(?:0|[1-9][0-9]?|100)"
+  },
+  "evaluation": "Original validation-only highest-threshold tie rules, paired weighted test evaluation, probe-only, explicit combined label, fixed50, jointly tuned probabilities, all six judges. Hard/probability directories are two views of the same calls, never independent experiments or additive collection costs. Legacy parent_hard field means combined-prompt label.",
+  "reproducibility": "Exact original membership, order, inclusion weights, probes, explanations and threshold candidate grids preserved. Only output contract changed. New content-derived IDs; no old separate-format response reuse. Raw attempts preserved; no ambiguous retry. 20 GiB reserve on both volumes. Numerical agreement gates stay removed."
+}

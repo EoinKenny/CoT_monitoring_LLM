@@ -1,0 +1,32 @@
+{
+  "objective": "Explain when and why nearest-neighbour explanations help or hurt using frozen experiments, with evidence strength and unresolved mechanisms explicit.",
+  "required_axes": [
+    "training/validation/test dataset sizes and effective sample sizes",
+    "nearest cosine and lexical similarity",
+    "class imbalance and neighbour label agreement",
+    "target and reference text lengths and truncation",
+    "task/topic and label definitions",
+    "judge/backbone heterogeneity",
+    "score changes versus operating-policy changes",
+    "component/random-neighbour ablations",
+    "two-neighbour evidence when completed"
+  ],
+  "primary_cohort": "Ten judges on common valid cases; within-backbone matched cases. Local six judges full valid cohort sensitivity.",
+  "outcomes": [
+    "fixed-50 judge decisions",
+    "same-gate score replacement",
+    "own validation-selected pipeline F1 precision recall",
+    "Brier score and direction of probability shifts",
+    "Shapley decomposition of score versus threshold-policy effects"
+  ],
+  "statistical_design": "Equal cell weights with within-cell inclusion weights. Stratify by gold label and baseline error/headroom. Cosine ranks within dataset/backbone. Cluster uncertainty by dataset+target identity where repeated across backbones/judges. Observational associations are not causal effects. Use existing component/random controls for intervention evidence.",
+  "validation": "Recover source hashes and canonical prompt matches; reproduce previous metrics before extending; compare case groups on paired controls; deterministic summaries and examples.",
+  "no_new_inference": "Analysis and feature export only initially. Do not mutate experiments or regenerate any judge attempts.",
+  "deliverables": [
+    "reproducible enriched case features and provenance",
+    "per-factor and conditional analyses",
+    "judge/backbone and task comparisons",
+    "mechanism-oriented matched examples",
+    "figures and report with scope limitations and requirement-by-requirement audit"
+  ]
+}

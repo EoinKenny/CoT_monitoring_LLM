@@ -1,0 +1,45 @@
+{
+  "status": "QUEUED_AFTER_VERIFIED_PARENT_COMPLETION",
+  "parent": "/home/ubuntu/experiments/full-threshold-sweep-20261009",
+  "destination": "/home/ubuntu/experiments/confidence-threshold-sweep-20261009",
+  "judges": [
+    "qwen",
+    "gemma"
+  ],
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "sample_policy": "Reuse the exact parent validation/test cases, ordering, gold-stratum inclusion probabilities, features, probes and explanation text; no new sampling or retraining.",
+  "batch_size": 16,
+  "seed": 20261001,
+  "temperature": 0,
+  "output_instruction": "Return only one integer from 0 to 100: your estimated probability that the CURRENT conversation belongs to the positive class defined by the task. 0 means certainly negative, 50 means equally likely, and 100 means certainly positive. This is the probability of the positive class, not confidence in whichever class you consider more likely. Do not include a class label, percent sign, explanation, or any other text.",
+  "schema": {
+    "type": "integer",
+    "minimum": 0,
+    "maximum": 100
+  },
+  "prompt_adaptation": "Preserve each parent's rubric, conversation and explanation text. Replace all label-only response instructions and footers with this contract, consistently across conditions; verify no conflicting instructions remain. Re-tokenize with identical model/tokenizer revisions. Keep target gold labels out of prompts.",
+  "decoding": "Use native vLLM structured choice generation over the complete strings 0 through 100 if supported, otherwise a JSON integer schema constrained to 0..100. Output one integer only, greedy decoding, max_tokens=8, existing model precision and scheduling settings. Freeze exact settings. Smoke-test shortest/longest prompts and all conditions in a separate directory before the main run; never implement this as a one-token allowed-token-ID restriction because integers may tokenize into multiple tokens.",
+  "validation": "Preserve raw generations before parsing. Require exactly one integer from 0 through 100; validate range, truncation and output completion. Derive class decisions from the score downstream. Do not silently regenerate malformed outputs. Retain failure records and pause for review rather than silently dropping cases.",
+  "threshold_search": "Jointly tune probe threshold and judge positive-probability threshold on the frozen validation sample only, using its design weights. Probe threshold candidates are the parent's validation-derived candidates. Score thresholds are integers 0 through 101 inclusive (101 rejects all). Predicted positive iff probe_score >= probe_threshold AND positive_probability >= score_threshold. Maximize weighted validation F1; ties within 1e-12 select highest probe threshold, then highest score threshold. Freeze choices before applying to test.",
+  "comparisons": "Report parent hard-label pipeline, new probability-only pipeline at fixed score cutoff >=50, joint validation-tuned probability pipeline, and probe-only; keep all three explanation conditions paired. The fixed-50 decision is the only new hard-label decision derived from this prompt, not a separate independent condition. Report weighted test precision/recall/F1 and routing rate, pointwise curves and paired stratified uncertainty. Do not select test-optimal thresholds. Report score calibration descriptively; verbalized scores are not assumed calibrated.",
+  "provenance": "Freeze source and prompt hashes, model/tokenizer revisions, versions, hardware, configuration, sample membership, raw responses and parsed scores. Use an isolated output directory and resumable checksummed batches. Do not replace original results or reuse old hard labels as confidence responses. Preserve keepalives and halt below 20 GiB free disk.",
+  "runtime": "Benchmark after parent completion; earlier one-token runtime does not directly apply to constrained integer output. Notify when the probability-only run starts with measured ETA.",
+  "output_contract_amendment": {
+    "date": "2026-10-10",
+    "authorization": "User requested probability-only output, with classification determined by downstream thresholds.",
+    "previous_protocol": "PROTOCOL_label_plus_probability_superseded_20261010.json",
+    "previous_protocol_sha256": "1fa9b02a5ee73f79764bc375b8e2b405821d477a0f52b24547063f4bab01c427",
+    "scope": "All three explanation conditions and both judges; no changes to sample membership, parent hard-label experiment, explanation text or threshold-selection policy."
+  }
+}

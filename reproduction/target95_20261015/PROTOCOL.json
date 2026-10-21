@@ -1,0 +1,14 @@
+{
+  "scope": "common valid cases across ten judges, paired across explanation conditions",
+  "target": 0.95,
+  "policies": {
+    "recall95": "maximize validation precision subject to validation recall >= 0.95",
+    "precision95": "maximize validation recall subject to validation precision >= 0.95 and at least 20 raw validation predicted positives"
+  },
+  "precision_support_sensitivity": 1,
+  "thresholds": "existing frozen probe grid and judge integer thresholds 0..100",
+  "tie_break": "highest probe threshold then highest judge threshold within 1e-12 objective ties",
+  "infeasible": "record unavailable; never substitute unconstrained solution",
+  "comparison": "Within each backbone-judge pair, average over identical datasets feasible for all 3 conditions. Record dataset coverage; no test feasibility filtering.",
+  "evaluation": "Frozen validation-selected cutoffs on matched weighted test cases; 95 percent is a validation point-estimate target, not a guarantee. No new model calls."
+}

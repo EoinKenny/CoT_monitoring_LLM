@@ -1,0 +1,26 @@
+import json,hashlib,datetime
+from pathlib import Path
+R=Path(__file__).resolve().parent
+tox='Classify text as toxic or non-toxic. Toxic content includes insults, threats, and hateful generalisations. Condemning or neutrally discussing toxic statements is not itself toxic.'
+hall='Classify an answer as hallucinated or faithful to its supplied source. An answer is hallucinated if it contains a factual claim that contradicts the source or is unsupported by it.'
+cases=[
+ dict(id='similarity_toxicity',task_definition=tox,target_text='People from that country are all dishonest.',target_probe_prediction='Toxic: 86%',neighbour_text='Everyone from that nation is a liar.',neighbour_label='Toxic',neighbour_probe_prediction='Toxic: 92%',expected=['yes','no'],note='Same hateful generalisation, paraphrased; no material distinction.'),
+ dict(id='similarity_grounding',task_definition=hall,target_text='Source: The train leaves at 09:00. Answer: The train leaves at 10:00.',target_probe_prediction='Hallucinated: 80%',neighbour_text='Source: The book was published in 1998. Answer: The book was published in 2001.',neighbour_label='Hallucinated',neighbour_probe_prediction='Hallucinated: 95%',expected=['yes','no'],note='Both replace an explicitly provided fact with an incompatible value; differing topics are not decision-relevant.'),
+ dict(id='contrast_endorsement',task_definition=tox,target_text='I condemn the claim that women are inferior.',target_probe_prediction='Toxic: 75%',neighbour_text='Women are inferior.',neighbour_label='Toxic',neighbour_probe_prediction='Toxic: 96%',expected=['no','yes'],note='Condemnation versus endorsement; shared words alone should not imply same meaning or behaviour.'),
+ dict(id='contrast_grounding',task_definition=hall,target_text='Source: The museum is closed on Mondays. Answer: The museum is open on Mondays.',target_probe_prediction='Hallucinated: 65%',neighbour_text='Source: The pool is closed on Tuesdays. Answer: The pool is closed on Tuesdays.',neighbour_label='Faithful',neighbour_probe_prediction='Hallucinated: 5%',expected=['no','yes'],note='Source contradiction versus source agreement, despite a similar opening-hours topic.'),
+ dict(id='both_insult_threat',task_definition=tox,target_text="You are an idiot, and I will break your jaw.",target_probe_prediction='Toxic: 94%',neighbour_text='You are an idiot.',neighbour_label='Toxic',neighbour_probe_prediction='Toxic: 90%',expected=['yes','yes'],note='Shared insult plus an additional physical threat; contrast need not imply opposite labels.'),
+ dict(id='both_supported_plus_error',task_definition=hall,target_text='Source: The museum opened in 1990 and is closed on Mondays. Answer: The museum opened in 1990 and is open on Mondays.',target_probe_prediction='Hallucinated: 70%',neighbour_text='Source: The museum opened in 1990 and is closed on Mondays. Answer: The museum opened in 1990.',neighbour_label='Faithful',neighbour_probe_prediction='Hallucinated: 3%',expected=['yes','yes'],note='Shared correctly grounded statement; target adds a contradictory statement. This deliberately tests the two-label overlap.'),
+ dict(id='neither_unrelated_benign',task_definition=tox,target_text='The recipe calls for two eggs.',target_probe_prediction='Toxic: 55%',neighbour_text='The train leaves at nine in the morning.',neighbour_label='Non-toxic',neighbour_probe_prediction='Toxic: 2%',expected=['no','no'],note='Unrelated neutral facts; no shared specific toxicity-relevant feature or material toxicity contrast.'),
+ dict(id='uncertain_missing_text',task_definition=tox,target_text='[Target text unavailable.]',target_probe_prediction='Toxic: 80%',neighbour_text='[Neighbour text unavailable.]',neighbour_label='Toxic',neighbour_probe_prediction='Toxic: 85%',expected=['uncertain','uncertain'],note='Neither text is available; scores and neighbour label do not establish either relationship.'),
+]
+t=(R/'prompt_template.txt').read_text();rendered=[]
+for c in cases:
+ p=t
+ for k in ['task_definition','target_text','target_probe_prediction','neighbour_text','neighbour_label','neighbour_probe_prediction']:p=p.replace('{'+k+'}',c[k])
+ rendered.append(dict(id=c['id'],prompt=p,prompt_sha256=hashlib.sha256(p.encode()).hexdigest()))
+(R/'toy_cases_with_expectations.json').write_text(json.dumps(cases,indent=2,ensure_ascii=False))
+(R/'prompts.json').write_text(json.dumps(rendered,indent=2,ensure_ascii=False))
+specs=json.loads((R.parent/'nn_reason_flips_20261017/judge_specs.json').read_text())
+(R/'judge_specs.json').write_text(json.dumps(specs,indent=2))
+(R/'PREFROZEN.json').write_text(json.dumps(dict(created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),n=8,expectations='Manual hypotheses fixed before model calls; not adjudicated ground truth. Eight toy cases are a smoke test, not a validation estimate.',constraints='Approved prompt unchanged. Qwen122 only. Greedy, native thinking disabled. Unconstrained text generation to test natural JSON compliance. No automatic resubmission.',files={n:hashlib.sha256((R/n).read_bytes()).hexdigest() for n in ['prompt_template.txt','toy_cases_with_expectations.json','prompts.json','judge_specs.json']}),indent=2))
+print('Prepared eight toy cases; expected labels are not in model prompts.')

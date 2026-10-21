@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-10",
+  "status": "Planned while probability collection is ongoing; exploratory, not a preregistration before any results were observed.",
+  "objective": "Find the strongest defensible probe-to-LLM configuration and determine whether nearest-neighbour gains survive equal probability-threshold optimization.",
+  "factors": {
+    "explanation": [
+      "baseline",
+      "saliency",
+      "nearest"
+    ],
+    "output": [
+      "parent hard label",
+      "probability only"
+    ]
+  },
+  "comparators": [
+    "Probe only, using the existing full-validation threshold rule and exact full-test metrics",
+    "Each hard-label explanation condition with a validation-tuned probe referral threshold",
+    "Each probability explanation condition with cutoff 50 and a validation-tuned probe threshold",
+    "Each probability explanation condition with jointly validation-tuned probe and judge probability thresholds",
+    "No-filter endpoint: probe threshold 0, so every eligible case is referred to the judge; sampled population estimates, not additional inference"
+  ],
+  "primary_questions": [
+    "Can the probability-tuned no-explanation pipeline match or exceed hard-label NN?",
+    "Does NN still help when no-explanation, saliency and NN ALL receive equal joint threshold tuning?",
+    "Does probability prompting plus validation threshold tuning help within each explanation condition relative to the parent hard-label prompt?",
+    "Which of the available configurations is preferred when the entire choice, including explanation and output format, is made on validation rather than test?"
+  ],
+  "selection": {
+    "thresholds": "Use the frozen threshold grids and highest-threshold tie rule in PROTOCOL.json. No changes based on test performance.",
+    "configuration": "For each backbone-dataset-judge pair, select among the six core explanation/output configurations plus probe-only using validation F1. Report fixed-50 as an ablation. Disclose complete versus sampled validation support for probe-only versus judge pipelines. On F1 ties within 1e-12 prefer lower exact validation referral rate, then fixed deterministic order: probe-only, baseline-hard, baseline-probability, saliency-hard, saliency-probability, nearest-hard, nearest-probability. Probability configurations here use joint tuning.",
+    "test": "Report all fixed configurations and the validation-selected configuration on test. Test-best configurations may only be shown as explicitly optimistic descriptive upper bounds, never as held-out selections."
+  },
+  "reporting": [
+    "Macro-average equally over backbone-dataset-judge pairs; separate judge and backbone summaries and all ten dataset results; distinguish any micro aggregation and its weighting",
+    "F1, precision, recall, confusion counts, exact referral rates, judge prompt tokens and measured latency; paired changes in percentage points",
+    "Precision-recall and F1-versus-referral-rate curves; both fixed-50 and jointly tuned probability variants. Plot test frontiers as descriptive, with validation-selected operating points clearly marked",
+    "Cost-matched comparisons at predeclared referral budgets 10%,25%,50%,100%, choosing feasible policies on validation only; report actual test referral rate rather than implying exact test-budget matching",
+    "Win/tie/loss counts, effect distributions, explanation-by-output interactions, and consistency across judges, backbones and datasets",
+    "Descriptive score reliability, weighted Brier score, saturation at 0/100, rounding/heaping and overlap between positive and negative score distributions; probabilities are not assumed calibrated",
+    "Matched error transitions: recovered positives versus additional false positives, rejected false positives versus newly missed positives; stratify by frozen probe-score bands and dataset; inspect concrete NN-help/NN-hurt cases and neighbour label/probe agreement without claiming a causal mechanism"
+  ],
+  "uncertainty": [
+    "Preserve design weights and matched cases across conditions; report paired stratified test bootstrap intervals conditional on validation-selected thresholds",
+    "Add separately labelled sensitivity analysis that resamples validation within original strata, retunes thresholds and configuration, then evaluates on paired test resamples; census strata fixed, no source-group leakage",
+    "Treat shared cases/backbones/judges as correlated. For pooled uncertainty, use dataset-block resampling retaining all associated backbones/judges/conditions; state that only ten dataset blocks are available and avoid an IID-example interpretation",
+    "Show sample sizes, inclusion probabilities, extreme-threshold effective support and threshold-selection stability; distinguish pointwise intervals from simultaneous frontier claims",
+    "Avoid uncorrected significance fishing across the grid. If formal multiple tests are reported, define their family and apply a stated correction; emphasize effect sizes and uncertainty"
+  ],
+  "limits": [
+    "NN versus no explanation tests effectiveness; it does not distinguish retrieval-specific benefits from simply supplying a labelled example. Random-neighbour and label-only controls remain unrun.",
+    "Judge probability estimates are compared as elicited scores, not calibrated epistemic confidence.",
+    "Training, probes, masks, splits, explanations and sampled memberships remain frozen. No extra model calls or retraining are authorized by this analysis plan.",
+    "Do not claim universal Pareto dominance from a macro-average F1 improvement. Describe any precision/recall/cost trade-offs and dataset-specific reversals."
+  ],
+  "deliverables": [
+    "Reproducible analysis scripts and checksummed machine-readable tables",
+    "Concise main comparison table with sample sizes, precision/recall/F1 and paired differences",
+    "Scientific plots showing trade-offs and heterogeneity",
+    "A clear conclusion about best validation-selected setups, where NN helps, whether probability thresholding removes its advantage, and what remains unresolved"
+  ],
+  "input_token_cost_amendment": {
+    "date": "2026-10-11",
+    "authorization": "User requested input-token cost as a metric in future analysis.",
+    "previous_plan_sha256": "18b6d244e644e7ebe9290347fd91ebf295bc2a3f66645e271aad6e320ad2e19a",
+    "scope": "Future analyses and judge expansions; reporting amendment only. Preserve completed reports and frozen inference and threshold-selection protocols. No new model calls are authorized by this amendment.",
+    "token_definition": "Use each judge tokenizer to count the exact rendered input, including chat template, rubric, target text and explanation, after any documented truncation. Report tokenizer/model revision. Token counts across different tokenizers are not identical units of compute.",
+    "metrics": [
+      "Exact full-population referral rate at the validation-selected probe threshold.",
+      "Design-weighted mean input tokens per referred judge call: sum_i(w_i * referred_i * input_tokens_i) / sum_i(w_i * referred_i). If no cases are referred, report undefined, not zero.",
+      "Estimated input tokens per original eligible example: sum_i(w_i * referred_i * input_tokens_i) / N, with N the known full eligible test population and w_i the inverse inclusion probability. Unreferred cases contribute zero.",
+      "Estimated input tokens per 1000 original eligible examples: 1000 times the preceding metric.",
+      "Paired absolute and relative input-token cost changes versus the same judge/output-format no-explanation baseline; label zero-denominator relative changes undefined.",
+      "F1 alongside input-token cost, broken out by judge, backbone, dataset, explanation and output mode, with equal-cell macro summaries clearly distinguished from population totals."
+    ],
+    "uncertainty": "Use the same paired stratified test resamples as performance comparisons for sample-estimated token costs; maintain fixed validation-selected thresholds and census strata.",
+    "accounting": "Separate actual experiment-collection tokens, including querying cases for counterfactual threshold sweeps, from estimated deployed-pipeline tokens at the selected gate. Keep output tokens, measured batch inference time, caching details and API pricing separate when available. Input tokens are a cost proxy, not measured compute or total pipeline latency; probe/backbone extraction and retrieval cost are not included.",
+    "selection": "Do not retrospectively optimize thresholds on test token costs or change the primary validation-F1 selection rule. Any new token-budget optimization should be specified separately before evaluating added judges."
+  }
+}

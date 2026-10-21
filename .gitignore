@@ -1,0 +1,27 @@
+# Research records stay in the private local backup.
+data/
+outputs/
+workspace/
+paper_data_backup*/
+*.csv
+*.jsonl
+*.npz
+*.npy
+*.joblib
+*.sqlite
+*.safetensors
+*.pt
+*.pth
+*.zip
+*.gz
+*.xz
+*.pdf
+*.png
+*.log
+*.pem
+.env
+.env.*
+__pycache__/
+*.pyc
+.venv*/
+.DS_Store

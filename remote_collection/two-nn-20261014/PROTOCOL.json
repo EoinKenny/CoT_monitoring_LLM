@@ -1,0 +1,34 @@
+{
+  "study": "Two nearest-neighbour extension",
+  "parent": "/home/ubuntu/experiments/probability-500-20261012",
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "judges": [
+    "qwen",
+    "gemma",
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122"
+  ],
+  "datasets": 10,
+  "validation_per_dataset": 500,
+  "test_per_dataset": 500,
+  "new_condition": "nearest2",
+  "new_judgments": 300000,
+  "reused_conditions": [
+    "baseline",
+    "nearest"
+  ],
+  "retrieval": "Preserve original first reference exactly. Select the maximum standardized-activation cosine training reference excluding its immutable ID, from the full eligible training pool. Float64 cosine, 64-query batches, 8192-row chunks, sorted immutable-ID ties. No retraining. Recomputed first-neighbour identity is diagnostic only; no numerical agreement gate.",
+  "prompt": "Append second training example, its gold label and frozen probe prediction to the original nearest-neighbour prompt; minimally pluralize the system instructions. Preserve original target and first-reference bytes and output contract. No current target gold in prompt.",
+  "output": "Only integer 0..100 positive-class probability, >=50 positive. Greedy seed20261001, max_tokens8, thinking disabled, constrained integer regex.",
+  "inference": "Same pinned weights, tokenizer, quantization, package environment and per-judge batch sizes as parent: Qwen/Gemma/Mistral16, OLMo/GLM8, Qwen1224. Retain original model context capacity or expand to fit all prompts within advertised limit. No truncation.",
+  "analysis": "Fixed50 judge threshold with validation-tuned probe gate; joint validation-only tuning of probe and judge cutoffs using parent threshold grid and tie rule. Weighted test precision, recall, F1, referral rate and input tokens; measured latency; paired stratified bootstrap comparisons to baseline and one NN. Report every dataset/backbone/judge and equal-cell macro means. Neighbour class agreement examined descriptively with target labels used only downstream.",
+  "recovery": "Separate immutable experiment root, frozen manifests and source hashes. Committed batch/raw checksums; ambiguous attempts stop without retries. First committed inference batch is smoke test and retained as data; same frozen settings continue automatically after valid numeric output. Stop below20GiB free on either volume. Preserve all artifacts and keepalives."
+}

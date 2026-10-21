@@ -1,0 +1,62 @@
+{
+  "claude4.5-sonnet": {
+    "provider": null,
+    "resolved_model_id": null,
+    "snapshot_or_fingerprint": null,
+    "endpoint": null,
+    "prior_manifest_sha256": null,
+    "configuration_per_study": {},
+    "unsupported_settings": [],
+    "configuration_frozen_utc": null
+  },
+  "claude4.8-opus": {
+    "provider": null,
+    "resolved_model_id": null,
+    "snapshot_or_fingerprint": null,
+    "endpoint": null,
+    "prior_manifest_sha256": null,
+    "configuration_per_study": {},
+    "unsupported_settings": [],
+    "configuration_frozen_utc": null
+  },
+  "gpt-4o": {
+    "provider": null,
+    "resolved_model_id": null,
+    "snapshot_or_fingerprint": null,
+    "endpoint": null,
+    "prior_manifest_sha256": null,
+    "configuration_per_study": {},
+    "unsupported_settings": [],
+    "configuration_frozen_utc": null
+  },
+  "gpt-astra": {
+    "provider": null,
+    "resolved_model_id": null,
+    "snapshot_or_fingerprint": null,
+    "endpoint": null,
+    "prior_manifest_sha256": null,
+    "configuration_per_study": {},
+    "unsupported_settings": [],
+    "configuration_frozen_utc": null
+  },
+  "claude-opus-5.5": {
+    "provider": null,
+    "resolved_model_id": null,
+    "snapshot_or_fingerprint": null,
+    "endpoint": null,
+    "prior_manifest_sha256": null,
+    "configuration_per_study": {},
+    "unsupported_settings": [],
+    "configuration_frozen_utc": null
+  },
+  "gpt-5.5": {
+    "provider": null,
+    "resolved_model_id": null,
+    "snapshot_or_fingerprint": null,
+    "endpoint": null,
+    "prior_manifest_sha256": null,
+    "configuration_per_study": {},
+    "unsupported_settings": [],
+    "configuration_frozen_utc": null
+  }
+}

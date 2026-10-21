@@ -1,0 +1,32 @@
+{
+  "study": "NN component ablation extension",
+  "parent": "/home/ubuntu/experiments/probability-500-20261012",
+  "backbone": "gemma",
+  "judge": "qwen122",
+  "datasets": 10,
+  "validation_per_dataset": 500,
+  "test_per_dataset": 500,
+  "new_conditions": [
+    "text_label",
+    "text_prediction",
+    "text_only",
+    "label_only",
+    "prediction_only",
+    "label_prediction",
+    "random_full"
+  ],
+  "reused_conditions": [
+    "baseline",
+    "nearest"
+  ],
+  "new_judgments": 70000,
+  "random_seed": 20261013,
+  "random_selection": "Independent deterministic uniform draw from sorted full eligible training IDs of the same dataset; SHA256 rejection sampling keyed by seed, dataset, target ID and counter. Across targets, sampling with replacement. Does not use target label or model output. Random draw may equal nearest neighbour.",
+  "prompt_policy": "Preserve task, target text, output instruction and field values. Delete the ablated fields and minimally update reference description to truthfully identify the supplied fields. Random control says randomly selected training example.",
+  "output": "Only integer 0..100 positive-class probability; >=50 positive",
+  "inference": "Reuse pinned parent weights, tokenizer and engine settings, batch4, greedy seed20261001, max_tokens8, thinking disabled, scalar regex. Retain parent context capacity unless random text requires larger capacity within original context limit.",
+  "selection": "Reuse exact parent sample IDs, order, weights, splits, probe scores and threshold grids. No retraining or resampling.",
+  "analysis": "Report fixed-50 judge threshold with validation-tuned probe gate, and joint validation-tuned probe/judge thresholds using frozen parent tie rule. Weighted test precision/recall/F1/referral/input-token costs. 2000 paired stratified test bootstrap resamples with census strata fixed, conditional on validation thresholds. Dataset block bootstrap separately. Factorial contrasts over eight component-presence conditions, plus full NN versus random full. Model pair chosen among next largest observed parent NN gains; follow-up is exploratory.",
+  "recovery": "Checksummed committed batches, raw output retained before parse; ambiguous attempts stop without retry. Preserve source data and keepalives. Stop below20GiB free on either volume.",
+  "selection_provenance": "Next two remaining backbone-judge combinations by equal-dataset macro test F1 gain, using parent validation-joint-tuned nearest versus baseline; exclude existing llama70/qwen122, qwen/qwen and gemma/gemma ablations. No distinct-judge constraint. Exploratory mechanism follow-up."
+}

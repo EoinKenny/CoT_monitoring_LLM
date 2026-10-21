@@ -1,0 +1,38 @@
+{
+  "scope": "Complete main paper matrix for all six local and six API judges; five frozen backbones, ten datasets. Activation neighbours only.",
+  "local": {
+    "new_ablation_calls": 1750000,
+    "new_mechanism_calls": 75000,
+    "reuse": "All main, 2NN, five ablation pairs, three mechanism annotators and both flip-focused reasoning orders preserved. No repeat of capped, invalid or ambiguous attempts."
+  },
+  "api": {
+    "old": [
+      "claude4.5-sonnet",
+      "claude4.8-opus",
+      "gpt-4o",
+      "gpt-astra"
+    ],
+    "new": [
+      "claude-opus-5.5",
+      "gpt-5.5"
+    ],
+    "alias_policy": "Exact provider IDs must be resolved by external agent, never guessed or silently substituted.",
+    "main": "150000 calls for each new model only",
+    "ablation": "350000 per model",
+    "two_nn": "50000 per model",
+    "mechanism": "25000 per model",
+    "reasoning": "Each models own fixed50 valid unambiguous original test flips; both probability-first explanation256 tokens and explanation-first512 tokens; select new model flips only after its main run. Preserve old 7122 selections. Do not regenerate an already attempted old export."
+  },
+  "decoding": {
+    "probability_tokens": 8,
+    "mechanism_tokens": 128,
+    "reason_after_tokens": 256,
+    "reason_first_tokens": 512,
+    "temperature": 0,
+    "seed": 20261001,
+    "native_thinking": false
+  },
+  "integrity": "Exact frozen tasks/texts/weights/splits/references; all raw responses, per-batch attempts written durably before dispatch; no automatic retry of attempted or ambiguous requests; no hidden exclusion; finite/input/hash checks; no numerical agreement gate;20GiB reserve; tasks independently logged and failed tasks never rerun automatically.",
+  "analysis": "Primary fixed50/50 and validation-only common threshold pairs anchored in each original explanation condition with averaged paired deltas. New ablations matched. Mechanism associations include unchanged outcomes. Reason traces outcome-selected and not full-test F1; record answer availability. Expressed explanations are not private internal reasoning.",
+  "not_in_scope": "Semantic retrieval, fresh-sample and constructed-pilot followups remain supplementary; no expansion of those conditions; do not restore previously paused runs."
+}

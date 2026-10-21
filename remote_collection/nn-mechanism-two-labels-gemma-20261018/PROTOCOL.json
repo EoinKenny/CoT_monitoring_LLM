@@ -1,0 +1,22 @@
+{
+  "scope": "All 25000 original 1-NN test contexts: five backbones, ten datasets, 500 test cases per cell. All outcomes including stable cases, no outcome-based selection. Annotation shared across original judges.",
+  "labels": [
+    "labelled_similarity",
+    "important_contrast"
+  ],
+  "allowed": [
+    "yes",
+    "no",
+    "uncertain"
+  ],
+  "prompt": "Approved toy-tested template unchanged; no evidence requested. No prompt change to resolve the one toy ambiguity.",
+  "input": "Exact original task definition and JSON target/reference text, reference dataset label and binary reference probe prediction. Target positive-class probe probability from frozen selected_flags manifest fills the approved target-prediction field. That target probability was not displayed in the original nearest-only judge user message; it is supplied here as approved annotation context. Never invent a reference probability.",
+  "blinding": "Target gold labels, outcome judge IDs/scores, correctness and flip outcomes excluded from model prompts. Ground truth and design weights retained only in private join mapping.",
+  "selection": "Test set only per approved next-mechanism-study plan. This does not annotate validation cases or written rationale text. Full 10-dataset coverage includes the four-dataset toxicity analysis.",
+  "decoding": "Local google/gemma-4-31B-it-qat-w4a16-ct revision 52f3f65bc7a02d555763bc923bd1d9094898219d; established engine, batch16, native thinking disabled, temperature0, seed20261001, max_tokens128, unconstrained generation. First production batch retained as format preflight. No automatic regeneration.",
+  "failures": "Save raw outputs before parsing. Strict two-key JSON; invalid, truncated or missing calls remain explicit. Preserve ambiguous attempted batches without repeating them.",
+  "deduplication": "Deduplicate only byte-identical fully rendered prompts; retain every original case mapping. Deterministic round-robin over 50 backbone-dataset groups.",
+  "limits": "Annotations describe similarity/contrast and do not establish causality or internal reasoning. Preserve uncertain labels. Future outcome analysis must respect matched thresholds, weights and repeated targets.",
+  "reserve_gib": 20,
+  "replication": "Same complete ordered 25000 test contexts as Qwen122, identical prompt bytes, no access to other annotations. Additional judges selected by measured local classification performance; that ranking does not guarantee annotation accuracy."
+}

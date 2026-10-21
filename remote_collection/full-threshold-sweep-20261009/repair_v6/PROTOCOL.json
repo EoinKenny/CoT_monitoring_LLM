@@ -1,0 +1,35 @@
+{
+  "seed": 20261009,
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "judges": [
+    "qwen",
+    "gemma"
+  ],
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "training": "Frozen existing full-training balanced-weight probes; no retraining",
+  "sampling": "Up to 500 validation and 500 test cases per backbone/dataset, independently hash-ranked within validation-defined score-decile x gold-label strata. Round-robin equal quotas with shortage redistribution; exact inclusion probabilities retained.",
+  "thresholds": "All unique validation probe-score values plus 0, original threshold, and nextafter(1,+inf). No test-score-based threshold construction. Highest threshold on max validation estimated-F1 ties within 1e-12.",
+  "nn": "Complete original training pool, standardized-activation cosine, immutable-ID similarity ties. Reference probe prediction remains frozen at original threshold across sweep.",
+  "evaluation": "Horvitz-Thompson TP/FP; exact total positives/negatives; validation-selected thresholds evaluated on independent test sample. Paired within-stratum bootstrap, census strata fixed. Test sweep exploratory; no test-selected optimum claimed.",
+  "inference": "Existing exact prompts and tokenizer versions, batch 16, max_num_seqs16, max_num_batched_tokens4096, greedy restricted 0/1, seed20261001. Raw outputs and failed attempts retained. No silent judge retry.",
+  "reuse": "Existing input features/probes reused; no judgment reuse unless identical prompt and complete inference and batch context. This independent sample has different batch contexts, so judgments kept as separate fresh runs.",
+  "limits": "Prior test inspection makes study exploratory. Partial strata can yield noisy estimates at extreme thresholds. Lower-score explanations require additional preparation; judging ETA excludes that work.",
+  "saliency_numerical_reproduction": {
+    "authorization": "User explicitly requested: Just get rid of that consistency check, we do not need it.",
+    "gates": "Numerical replay-agreement gates removed across all five backbone saliency paths. No cosine, logit-error, probability-error or bitwise-equality acceptance thresholds. Finite tensor/score validation and input/artifact integrity checks retained.",
+    "backend": "Use default configured SDPA for future replays. Remove agreement-triggered math fallback. Preserve existing committed default/math replay artifacts and their provenance.",
+    "fixed": "Original features, probes, normalization, routing probabilities, splits, selections, NN representations, thresholds and completed judgments remain authoritative and unchanged.",
+    "records": "Retain discrepancy diagnostics and failed attempts; bitwise agreement reported as observed, never assumed. Prior policies archived in repair_v5/PROTOCOL.json.",
+    "limitations": "Replay saliency can differ numerically and select different sentences across hardware or kernels. This is not guaranteed exact reproduction of original saliency."
+  }
+}

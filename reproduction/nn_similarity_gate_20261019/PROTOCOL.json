@@ -1,0 +1,8 @@
+{
+  "primary": "Per original judge/backbone/dataset, keep probe and judge at50; choose NN cosine cutoff by maximum weighted validation F1. NN scores above cutoff, control below. Compare never NN and always NN on identical test cases.",
+  "candidates": "Every unique validation cosine and never-NN (threshold1.0000001), plus always-NN (threshold-1); use >=. Max F1 tie within1e-12: fewer validation NN shown, then higher threshold. Include endpoints explicitly.",
+  "sensitivity": "Direct judge50 without probe gating; existing control,NN,saliency-anchor common probe/judge pairs, each fixed before cosine search. Average three anchors as sensitivity, not independent repetitions. Reuse prior selection, do not retune probe/judge.",
+  "missingness": "Original 3-condition matched-valid cases per judge. Local full population denominators as prior core evaluation; API estimates conditional on matched sampled support. Direct judge comparison uses sampled support for all judges.",
+  "labels": "Only test annotations exist, so no contrast-label gate is fitted. Test labels are descriptive subgroups after freezing cosine cutoff.",
+  "limits": "Previously inspected test set; exploratory follow-up. No new model calls. Test F1 does not select thresholds or policies."
+}

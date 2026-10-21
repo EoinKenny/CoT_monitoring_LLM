@@ -1,0 +1,53 @@
+{
+  "primary": "Four toxicity datasets; fixed probe/judge 50/50; one selector per backbone and outcome judge pooling the four datasets. Same frozen cases, splits, weights and 3 target-grouped validation folds.",
+  "datasets": [
+    "aegis",
+    "beavertails",
+    "toxicchat",
+    "toxigen"
+  ],
+  "backbones": 5,
+  "judges": 10,
+  "representations": [
+    "Original pooled hidden activations, row-L2 normalized",
+    "Original train-only probe-standardized activations, row-L2 normalized"
+  ],
+  "PCA": "Shared target/neighbour basis, 128 randomized components fitted to validation TRAINING FOLD targets and reference neighbours only; use prefixes16,64,128. Refit on full validation for final model. Feature-only projection of held-out rows does not fit any parameter.",
+  "forms": [
+    "target + neighbour concatenation",
+    "target + neighbour + elementwise product + absolute difference",
+    "PCA64 target-only and neighbour-only diagnostic ablations"
+  ],
+  "inputs": [
+    "embeddings alone",
+    "embeddings plus original31 numerical features",
+    "matched numerical-only baseline"
+  ],
+  "learners": {
+    "logistic_C": [
+      0.001,
+      0.01,
+      0.1,
+      1,
+      10
+    ],
+    "knn_k": [
+      151,
+      51,
+      15,
+      5,
+      3,
+      1
+    ],
+    "knn_metric": [
+      "euclidean",
+      "cosine"
+    ]
+  },
+  "solver": "Logistic lbfgs below1024 dimensions, liblinear dual above; within-fold weighted standardization; tol1e-6,max_iter4000, documented extension16000 only for nonconvergence. Fit only validation disagreements; original cell-normalized inclusion weights. kNN sample-weight vote.",
+  "selection": "OOF probabilities for all validation cases; per-dataset inclusion cutoffs maximize weighted F1 with prior tie rules. Candidate per judge/backbone chosen by four-dataset macro validation F1. Select each input/learner family before test. All families and global selected baseline are reported, not selected after seeing test.",
+  "secondary": "For each of three existing shared-anchor threshold policies, retain the architectures selected on FIXED50 VALIDATION for each of embedding-logistic, combined-logistic, embedding-kNN, combined-kNN and numerical-only. Refit and reselect C/k and cutoff on that policy validation outcomes. This is an architecture-transfer robustness analysis, not an exhaustive tuned-policy search.",
+  "evaluation": "Freeze all selected models, PCA fits, parameters and cutoffs before evaluating test once. Compare alwaysNN, cosine gate, prior pooled logistic and matched backbone-specific numerical gate. Report per-judge/backbone/dataset heterogeneity, training counts, selected architecture/PCA and paired uncertainty. No changes to thresholds, scores, weights or split membership.",
+  "limits": "Exploratory extension on a previously inspected test set. No new LLM calls. Distinct backbone spaces never concatenated across models. No numerical replay-agreement gates; artifact identity and finite-value checks retained.",
+  "resources": "CPU only; at most two workers with two BLAS threads each; keepalives preserved; stop below20GiB disk reserve."
+}

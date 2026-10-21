@@ -1,0 +1,20 @@
+{
+  "prompts_csv_sha256": "FILLED_AT_PACKAGING",
+  "models": [
+    {
+      "model": "REPLACE_WITH_STABLE_ALIAS",
+      "provider": "",
+      "model_id": "",
+      "resolved_version": "",
+      "temperature": 0,
+      "seed": 20261001,
+      "max_output_tokens": 16,
+      "reasoning": "disabled where supported",
+      "structured_output": "native scalar regex where supported; otherwise plain text",
+      "concurrency": 15,
+      "started_utc": "",
+      "finished_utc": "",
+      "unsupported_settings": []
+    }
+  ]
+}

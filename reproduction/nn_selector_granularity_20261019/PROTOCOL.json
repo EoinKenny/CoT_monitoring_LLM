@@ -1,0 +1,37 @@
+{
+  "groups": {
+    "pool_all": "One per judge, pooling all ten datasets and five backbones",
+    "pool_toxicity": "One per judge, pooling four toxicity datasets and five backbones",
+    "dataset": "One per judge and dataset, pooling five backbones",
+    "cell": "One per judge, dataset and backbone"
+  },
+  "policies": [
+    "fixed50",
+    "baseline_anchor",
+    "nearest_anchor",
+    "saliency_anchor"
+  ],
+  "features": "Exact original 31-feature whitelist; no target gold, judge scores, or test mechanism annotations as inputs.",
+  "supervision": "Validation control-vs-NN disagreements only; include=1 iff NN correct. Same target-cluster grouped three folds and equal-cell-mass inverse inclusion weights as original. Full validation support used for cutoff selection.",
+  "logistic_C": [
+    0.1,
+    1
+  ],
+  "knn_k": [
+    151,
+    51,
+    15,
+    5,
+    3,
+    1
+  ],
+  "knn_distance": [
+    "euclidean",
+    "cosine"
+  ],
+  "knn_note": "Same standardized feature-space distances and sample-weight voting as earlier kNN. Add k1 and k3 for sparse groups, equally for pooled and separate selectors. k is capped to available training rows.",
+  "selection": "For each candidate, OOF gate scores select one inclusion cutoff per cell by original weighted F1 and tie rules. Candidate selected by macro validation F1 across cells in its training group. Logistic, each kNN metric, and kNN metric+k are selected separately. Refit on all group validation disagreements. Freeze all selections and models before any test evaluation.",
+  "sparse": "No groups excluded. Empty training fit gives constant 0.5; one-class fit gives that class constant. Applies separately within CV and final fit; record counts. No test-guided fallback.",
+  "evaluation": "Same original probe/judge thresholds across methods, same paired-valid cases and design weights. Macro across cells. Anchor average is mean of three paired evaluations, not an averaged threshold. Original pooled logistic replay required.",
+  "limits": "Exploratory follow-up on previously examined test data; no new model calls. Group granularity comparison does not create new independent validation examples."
+}

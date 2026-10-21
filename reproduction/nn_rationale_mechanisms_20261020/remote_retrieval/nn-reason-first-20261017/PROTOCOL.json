@@ -1,0 +1,16 @@
+{
+  "scope": "Six local judges, five backbones, ten datasets; same35919 original fixed50 test flips as completed probability-first study. New reasoning-first condition only.",
+  "authorization": "User requested reasoning before answer contrast and immediate launch on2026-10-17.",
+  "pairing": "Exact selection.json per cell copied byte-equivalently, preserving IDs, order, gold metadata and weights. Both helpful and harmful original flips. All35919 new prompts, including two cases without prior reasoning-after result; paired reasoning-order statistics exclude missing counterpart explicitly.",
+  "prompt_change": "Replace only probability-first output instruction with VERY brief reasoning followed by final integer probability. Replace trailing probability-only answer cue with order-consistent assessment cue. All task/reference/target/neighbour text and training labels/predictions preserved. Native thinking remains disabled.",
+  "generation": {
+    "temperature": 0,
+    "seed": 20261001,
+    "max_tokens": 256,
+    "regex": "[^\\n][\\s\\S]*\\n(?:0|[1-9][0-9]?|100)"
+  },
+  "inference": "Same frozen engine, model revision, quantization, package versions, GPU and model-specific batch sizes as parent. Tokenizers and chat templates recorded. No input truncation. Smoke batches deterministically span available datasets; reuse within this run, not additional calls.",
+  "outcomes": "Score only the final standalone integer after nonempty reasoning and a stop completion. Capped outputs remain saved and unscored, even if their final partial token could look numeric. No hunting for earlier numbers. Preserve contradictions, invalid and ambiguous outcomes. No retry of attempted calls. Two smoke batches per backbone/judge are committed and reused in full collection; missing scores do not gate collection.",
+  "recovery": "Detached boot/controller; per-stage progress watchdog; bounded process restarts for failures, only never-attempted batches inferred. Saved raw reparsed, attempted-without-raw retained ambiguous. Preserve source artifacts and keepalives;20GiB reserve. Corrected duplicate-time finalization bug.",
+  "analysis": "Compare original probability-only NN, probability-first explanation, and reasoning-first explanation at common50. Report answer availability/truncation separately, paired valid-answer transitions, and all-case bounds if missing. No new threshold tuning or full-test F1 interpretation on this outcome-selected subset. Expressed reasoning is not proof of internal causal mechanism."
+}

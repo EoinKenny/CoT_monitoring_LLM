@@ -1,0 +1,40 @@
+{
+  "created": "2026-10-12",
+  "judges": [
+    "qwen",
+    "gemma",
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122"
+  ],
+  "excluded_judge": "llama",
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "datasets": 10,
+  "validation_per_pair": 500,
+  "test_per_pair": 500,
+  "source_cases": "original frozen 500-per-split full-threshold sweep; no new sampling",
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "output": "One integer 0..100; positive iff >=50; validation-tuned cutoff also evaluated",
+  "calls_per_judge": 150000,
+  "total_calls": 900000,
+  "sampling": {
+    "temperature": 0,
+    "seed": 20261001,
+    "max_tokens": 8,
+    "regex": "(?:0|[1-9][0-9]?|100)"
+  },
+  "evaluation": "Original validation-only threshold rules and paired weighted tests; probe-only, probability fixed50 and jointly tuned probability/probe cutoffs. Internal parent_hard field derives >=50 and duplicates fixed50; not a separately elicited label. Six judges, all five backbones. Two evaluation views of one set of calls; never sum runtime across views.",
+  "reproducibility": "Original frozen500 val +500 test, weights, probes, explanations, order and threshold grids retained. New approved explicit >=50 instruction means no old output reuse. Preserve raw attempts; no ambiguous regeneration. Reserve20GiB.",
+  "output_instruction": "Return only one integer from 0 to 100 estimating the probability\nthat the CURRENT conversation belongs to the positive class.\n\n0 means certainly negative.\n50 means equally likely positive or negative.\n100 means certainly positive.\n\nA value of 50 or above will be classified as positive;\na value below 50 will be classified as negative.\n\nReport the probability of the positive class, not confidence\nin whichever class you predict. Do not include any other text."
+}

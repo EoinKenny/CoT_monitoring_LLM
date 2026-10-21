@@ -1,0 +1,15 @@
+{
+  "datasets": [
+    "toxigen",
+    "toxicchat",
+    "beavertails",
+    "aegis"
+  ],
+  "reason": "Four content-safety/toxicity datasets discussed with the user; excludes WildGuard and WildJailbreak from this specified subset.",
+  "estimand": "Equal-weight macro means over 200 judge-backbone-dataset cells (10 judges x 5 backbones x 4 datasets). Dataset and judge selection unchanged within subset.",
+  "fixed": "Probe probability >=0.5 AND judge probability >=50. No threshold fitting.",
+  "tuned": "Reuse original per-cell validation-only full-grid F1 selections separately for control, NN and saliency. Freeze BOTH selected cutoffs across all three explanations. Average paired deltas equally across the three sources, then across cells. No new fitting or test selection is needed because original fitting was per cell.",
+  "scope": "Primary combines 120 local full-test design-weighted cells with 80 API condition-matched valid-case cells. Common-valid-all-judges sensitivity is separate. Same masks within paired comparisons. The average across sources is not a deployable threshold.",
+  "limits": "Previously examined datasets; exploratory subset, not an independent confirmation. Point estimates, no new significance claim. Zero-cutoff and no-veto cells retained; repeated targets and threshold sources are not independent samples.",
+  "new_model_calls": 0
+}

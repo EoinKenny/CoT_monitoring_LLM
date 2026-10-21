@@ -1,0 +1,38 @@
+{
+  "study": "1-NN probability first, VERY brief explanation afterward",
+  "parent": "/home/ubuntu/experiments/probability-500-20261012",
+  "condition": "nearest_reason_after",
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "judges": [
+    "qwen",
+    "gemma",
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122"
+  ],
+  "datasets": 10,
+  "validation_cases_per_cell": 500,
+  "test_cases_per_cell": 500,
+  "total_calls": 300000,
+  "scope": "Six local judges only; no API calls. 1-NN only; reuse controls and prior NN.",
+  "prompt_change": "First, return one integer from 0 to 100 estimating the probability\nthat the CURRENT conversation belongs to the positive class.\n\n0 means certainly negative.\n50 means equally likely positive or negative.\n100 means certainly positive.\n\nA value of 50 or above will be classified as positive;\na value below 50 will be classified as negative.\n\nReport the probability of the positive class, not confidence\nin whichever class you predict.\n\nAfter the integer, start a new line and VERY briefly explain the reasoning\nbehind your assessment.\n\nUse this format:\n<integer 0\u2013100>\n<reasoning trace>",
+  "unchanged": "Exact user message, target and reference texts, labels and probe predictions; exact task/system prefix. Frozen splits, probes, weights, neighbour retrieval, model revisions and native thinking-disabled settings.",
+  "generation": {
+    "temperature": 0,
+    "seed": 20261001,
+    "max_tokens": 256,
+    "regex": "(?:0|[1-9][0-9]?|100)\\n[^\\n][\\s\\S]*",
+    "note": "Only output format constraint changes to allow probability followed by text; native internal reasoning remains disabled. 256 is a safety cap, not a requested reasoning length."
+  },
+  "smoke": "Two production-size batches per backbone/judge, 680 calls total, chosen deterministically with dataset/length stratification. All 30 pairs tested before full collection; smoke calls are committed and reused.",
+  "recovery": "Atomic raw/parsed batch commits; immutable execution plan; never retry ambiguous calls; retain truncations and raw traces; pause on invalid probability, absent reason or truncated smoke; reserve20GiB.",
+  "analysis": "Existing fixed50 and joint validation tuning, weighted test estimates and paired bootstrap. Also compare exact score and fixed50 decision agreement to prior NN. No causal claims from retrospective explanations.",
+  "eta": "Per-backbone/judge smoke throughput, full prepared input lengths, sampled output length and model loading times. Estimate with explicit 25% planning margin; two batches is a coarse estimate."
+}

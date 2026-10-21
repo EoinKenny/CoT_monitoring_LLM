@@ -1,0 +1,4 @@
+Reduced judge study: 100 validation +100 test cases per backbone/dataset; 60000 prompts per judge; 420000 paired outputs for seven judges.
+Nested selection uses original score-band x gold-label strata and two-stage inclusion probabilities. Same frozen cases across every judge, explanation and output format. Source scores, groups, prompts, thresholds and full prior outputs remain intact. New files live in judge-100-20261011.
+Qwen/Gemma complete outputs and committed selected Mistral rows are reused by checksum-proven projections with historical batch context retained. Remaining calls are fresh with documented reduced batch context. No ambiguous calls regenerate. Raw original data and redundant outputs remain preserved.
+Validation-only tuning retained. Smaller sample increases per-dataset and threshold-selection uncertainty. Retrospective source batch timings include unselected rows and are not runtime estimates for a fresh reduced collection.

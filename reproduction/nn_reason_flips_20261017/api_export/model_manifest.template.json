@@ -1,0 +1,61 @@
+{
+  "study": "nn_reason_flips_api_20261017",
+  "models": {
+    "claude4.5-sonnet": {
+      "provider": null,
+      "resolved_model_id": null,
+      "model_snapshot_or_fingerprint": null,
+      "endpoint_or_api_version": null,
+      "temperature": 0,
+      "seed": 20261001,
+      "max_output_tokens": 256,
+      "native_reasoning_enabled": false,
+      "actual_request_parameters": {},
+      "unsupported_requested_settings": [],
+      "run_started_utc": null,
+      "run_finished_utc": null
+    },
+    "claude4.8-opus": {
+      "provider": null,
+      "resolved_model_id": null,
+      "model_snapshot_or_fingerprint": null,
+      "endpoint_or_api_version": null,
+      "temperature": 0,
+      "seed": 20261001,
+      "max_output_tokens": 256,
+      "native_reasoning_enabled": false,
+      "actual_request_parameters": {},
+      "unsupported_requested_settings": [],
+      "run_started_utc": null,
+      "run_finished_utc": null
+    },
+    "gpt-4o": {
+      "provider": null,
+      "resolved_model_id": null,
+      "model_snapshot_or_fingerprint": null,
+      "endpoint_or_api_version": null,
+      "temperature": 0,
+      "seed": 20261001,
+      "max_output_tokens": 256,
+      "native_reasoning_enabled": false,
+      "actual_request_parameters": {},
+      "unsupported_requested_settings": [],
+      "run_started_utc": null,
+      "run_finished_utc": null
+    },
+    "gpt-astra": {
+      "provider": null,
+      "resolved_model_id": null,
+      "model_snapshot_or_fingerprint": null,
+      "endpoint_or_api_version": null,
+      "temperature": 0,
+      "seed": 20261001,
+      "max_output_tokens": 256,
+      "native_reasoning_enabled": false,
+      "actual_request_parameters": {},
+      "unsupported_requested_settings": [],
+      "run_started_utc": null,
+      "run_finished_utc": null
+    }
+  }
+}

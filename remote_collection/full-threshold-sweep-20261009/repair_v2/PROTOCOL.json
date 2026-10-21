@@ -1,0 +1,27 @@
+{
+  "seed": 20261009,
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "judges": [
+    "qwen",
+    "gemma"
+  ],
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "training": "Frozen existing full-training balanced-weight probes; no retraining",
+  "sampling": "Up to 500 validation and 500 test cases per backbone/dataset, independently hash-ranked within validation-defined score-decile x gold-label strata. Round-robin equal quotas with shortage redistribution; exact inclusion probabilities retained.",
+  "thresholds": "All unique validation probe-score values plus 0, original threshold, and nextafter(1,+inf). No test-score-based threshold construction. Highest threshold on max validation estimated-F1 ties within 1e-12.",
+  "nn": "Complete original training pool, standardized-activation cosine, immutable-ID similarity ties. Reference probe prediction remains frozen at original threshold across sweep.",
+  "evaluation": "Horvitz-Thompson TP/FP; exact total positives/negatives; validation-selected thresholds evaluated on independent test sample. Paired within-stratum bootstrap, census strata fixed. Test sweep exploratory; no test-selected optimum claimed.",
+  "inference": "Existing exact prompts and tokenizer versions, batch 16, max_num_seqs16, max_num_batched_tokens4096, greedy restricted 0/1, seed20261001. Raw outputs and failed attempts retained. No silent judge retry.",
+  "reuse": "Existing input features/probes reused; no judgment reuse unless identical prompt and complete inference and batch context. This independent sample has different batch contexts, so judgments kept as separate fresh runs.",
+  "limits": "Prior test inspection makes study exploratory. Partial strata can yield noisy estimates at extreme thresholds. Lower-score explanations require additional preparation; judging ETA excludes that work."
+}

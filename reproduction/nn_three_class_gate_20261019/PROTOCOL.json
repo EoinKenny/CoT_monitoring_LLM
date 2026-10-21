@@ -1,0 +1,21 @@
+{
+  "parent": "reproduction/nn_embedding_gate_20261019",
+  "datasets": [
+    "aegis",
+    "beavertails",
+    "toxicchat",
+    "toxigen"
+  ],
+  "training": "All original paired-valid validation rows; harmful=-1, unchanged=0, helpful=1 based on the same frozen pipeline policies. Nonreferrals are unchanged. No target labels in features.",
+  "score": "P(helpful)-P(harmful); monotonic (utility+1)/2 mapping for prior cutoff code.",
+  "classifiers": "One-vs-rest logistic with normalized class probabilities and weighted multiclass kNN. Original design weights with equal dataset mass. No class rebalancing.",
+  "comparison": "Hold prior validation-selected architectures fixed separately for each backbone/judge/policy/family, retune original C or k grid and per-dataset gate cutoff using grouped validation folds. This isolates training-outcome treatment; not a new architecture sweep. Compare against preserved disagreement-only outputs.",
+  "policies": [
+    "fixed50",
+    "baseline_anchor",
+    "nearest_anchor",
+    "saliency_anchor"
+  ],
+  "data": "Same cached target/neighbour activations, PCA fits, splits, target-grouped folds, case masks, population denominators, and weights as parent. No new inference. Freeze all selections before testing.",
+  "caveats": "Test set previously examined; exploratory. Prior architectures were selected for disagreement-only training, not specifically optimized for the three-class task."
+}

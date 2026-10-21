@@ -1,0 +1,7 @@
+Existing-data exploratory threshold sweep. No inference or probe training performed.
+Thresholds are the original validation-selected threshold, then quantiles .05 through .95 of validation scores already above that threshold. This covers stricter routing only.
+TP and FP are Horvitz-Thompson estimates using ORIGINAL stratum inclusion probabilities, never renormalized after threshold filtering. Recall divides by exact full-test positives. F1=2TP/(positives+TP+FP).
+All conditions share cases and bootstrap draws. Bootstrap is conditional on fixed probes and finite held-out populations; census strata fixed, no finite-population correction. Intervals are pointwise, not simultaneous, and do not represent uncertainty over datasets or training.
+Original threshold metrics reproduce the saved study. Figures omit points with fewer than 30 remaining sampled cases or 10 predicted positives. Macro figures retain a point only if all 50 cells pass; no changing dataset composition.
+Full probe-only precision-recall curves are in the 25-page detailed PDF. Macro trajectories average precision/recall per cell at a shared validation-quantile policy: they are NOT optimized frontiers. Equal-F1 contours apply only to individual-cell figures.
+Lower thresholds need new judgments; validation judgments are needed for independent cascade threshold selection. No test-selected optimal F1 is claimed. Llama judge excluded as requested; Llama backbones retained. No aggregate bootstrap CI is constructed by assuming independence across shared datasets/backbones.

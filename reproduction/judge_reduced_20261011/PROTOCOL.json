@@ -1,0 +1,79 @@
+{
+  "name": "Reduced seven-judge hard-label and probability study",
+  "date": "2026-10-11",
+  "authorization": "User asked to reduce judging closer to original 66918 per judge; implemented 66000, a 78 percent reduction",
+  "judges": [
+    "qwen",
+    "gemma",
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122",
+    "llama"
+  ],
+  "existing_judges": [
+    "qwen",
+    "gemma"
+  ],
+  "new_judge_order": [
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122",
+    "llama"
+  ],
+  "backbones": [
+    "llama",
+    "qwen",
+    "gemma",
+    "llama70",
+    "qwen122"
+  ],
+  "datasets": [
+    "aegis",
+    "beavertails",
+    "fava",
+    "halueval",
+    "high_stakes",
+    "ragtruth",
+    "toxicchat",
+    "toxigen",
+    "wildguard",
+    "wildjailbreak"
+  ],
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "output_modes": [
+    "hard",
+    "probability"
+  ],
+  "cases_per_backbone_dataset": {
+    "val": 110,
+    "test": 110
+  },
+  "prompts_per_judge": 66000,
+  "new_judgments": "At most 330000, less already-committed selected Mistral judgments",
+  "existing_judgments": 132000,
+  "total_judgments": 462000,
+  "source_hard": "/home/ubuntu/experiments/full-threshold-sweep-20261009",
+  "source_probability": "/home/ubuntu/experiments/confidence-threshold-sweep-20261009",
+  "data_policy": "Frozen probes, scores, splits, thresholds, explanation text and source-group separation remain unchanged. Only judging sample is reduced. Revised nested selection weights replace parent weights in reduced analysis. No training/extraction.",
+  "nonreasoning": true,
+  "temperature": 0,
+  "seed": 20261001,
+  "hard_output": "Exactly one digit 0 or 1, one-token allowed-label restriction. Preserve raw output and log probabilities.",
+  "probability_output": "Exactly one integer 0 through 100 denoting positive-class probability, native structured choice decoding, max_tokens=8. No label or rationale. >=50 and validation-tuned decisions derived downstream.",
+  "sampling": "Outcome-blind nested subsample of parent score-decile x gold-label strata. Fixed seed20261011, SHA256 of seed/budget110/backbone/dataset/stratum/immutable ID. Equal round-robin quotas with shortage redistribution; keep110 validation and110 test per pair. Inclusion probability is original inclusion probability times conditional selected/parent stratum count. Preserve parent order and prompt IDs.",
+  "thresholds": "Use identical validation-derived probe threshold candidates. Maximize weighted validation F1; ties within1e-12 select highest probe threshold then highest judge cutoff. Judge cutoffs0..101. Apply frozen selections to weighted held-out test. Never pick test maxima as held-out winners.",
+  "runtime": "Each additional model loaded once and run sequentially on GPU. Per-model known safe batch sizes Mistral16, OLMo8, GLM8, Qwen1224, Llama4. Determine max input length over all exact untruncated prompts per model. Eager, no prefix caching, per-model prior precision; explicit nonreasoning template. Report differences in inference configs; vLLM is not bitwise deterministic.",
+  "replay": "Existing600000 verified outputs are referenced intact. No reuse of old other-model fixed-flag outputs because complete new inference configurations do not match. Each new batch writes an intent before generation, raw output before validation, and checksum-protected commit afterward. Ambiguous attempts halt without automatic regeneration. Committed outputs never silently regenerated.",
+  "recovery": "Only safe non-destructive repairs. Preserve failed attempts, frozen data, model revisions, environments and keepalives. Halt below20GiB free on project or model-cache volume. Numerical replay agreement checks remain diagnostic only; not reintroduced.",
+  "evaluation": "Exact probe-only metrics, weighted test pipeline estimates, precision/recall/F1, referral and input-token costs, per-dataset/backbone/judge results, paired comparisons and probability calibration with original scientific limits. All three explanation conditions equally tuned. Fixed50 ablation uses saved probabilities without additional calls.",
+  "external": "CSV prompt_id plus exact separate system/user messages and output_type. Return minimal rows prompt_id,model,response,status,input_tokens,output_tokens,latency_ms; save exact provider/revision/settings separately in model manifest. Do not include gold target labels, retrievable splits, probabilities or weights in sent prompt messages. No external API calls are performed by this local task.",
+  "reuse": "Project existing Qwen/Gemma and committed Mistral outputs into new sample; preserve and verify source raw/config/batch checksums and historical batch context. Never regenerate these saved outputs. New remaining Mistral rows have smaller-sample batch contexts with same frozen native settings; numerical equivalence across batch contexts not assumed.",
+  "limits": "Smaller per-dataset validation/test samples increase tuning instability and uncertainty. Existing test inspection and prior full-sample results limit confirmatory claims. Main seven-judge comparison uses same reduced cases for every judge. Full Qwen/Gemma outputs retained separately.",
+  "runtime_cost_caveat": "Retrospectively reused rows retain original full-batch measured times including unselected rows. Report these separately from new reduced-run timing; do not interpret retained batch sums as runtime for a freshly collected reduced sample."
+}

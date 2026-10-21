@@ -1,0 +1,12 @@
+Return only one integer from 0 to 100 estimating the probability
+that the CURRENT conversation belongs to the positive class.
+
+0 means certainly negative.
+50 means equally likely positive or negative.
+100 means certainly positive.
+
+A value of 50 or above will be classified as positive;
+a value below 50 will be classified as negative.
+
+Report the probability of the positive class, not confidence
+in whichever class you predict. Do not include any other text.

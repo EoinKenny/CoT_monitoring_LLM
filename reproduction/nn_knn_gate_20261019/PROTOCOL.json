@@ -1,0 +1,14 @@
+{
+  "extension": "kNN selector using same feature whitelist, validation folds, targets, weights and evaluation policies as original logistic/tree study. Previous artifacts unchanged.",
+  "distance": "Euclidean and cosine on StandardScaler-transformed 31-dimensional pre-judge feature vectors, not the original text embedding space. Scaler fitted with training-disagreement weights only, within each CV fold.",
+  "neighbors": [
+    151,
+    51,
+    15,
+    5
+  ],
+  "vote": "Weighted mean include-label among k closest training disagreements, using same cell-normalized inverse-inclusion sample weights as logistic/tree. No additional inverse-distance weighting. k capped to available training count. Exact-distance ties follow the fixed sklearn neighbour implementation and frozen input order; labels do not break ties.",
+  "selection": "Out-of-fold predictions for every validation case. Per-cell cutoff maximizes validation pipeline F1 with original endpoint/tie rules. Best k within each metric, best kNN overall, and expanded comparison including original logistic/tree candidates all selected using validation only. Ties prefer earlier candidate; old families precede kNN in expanded selection.",
+  "supervision": "Only original validation control-vs-NN disagreements; target1 when NN correct,0 when control correct. No preference from unchanged predictions.",
+  "limits": "Exploratory follow-up on previously inspected test set. No test-driven hyperparameter selection, no LLM calls. kNN retrieves validation examples of usefulness, a separate operation from retrieving the neighbour shown in the original prompt."
+}

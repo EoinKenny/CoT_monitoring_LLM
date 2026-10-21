@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "study": "judge-expansion-20261011",
+  "prompts_csv_sha256": "COPY_FROM_export_manifest.json",
+  "models": [
+    {
+      "model": "REPLACE_WITH_UNIQUE_ALIAS",
+      "provider": "REPLACE",
+      "requested_model_id": "REPLACE_WITH_EXACT_API_MODEL_NAME",
+      "resolved_model_version": null,
+      "provider_fingerprints": [],
+      "run_start_utc": null,
+      "run_end_utc": null,
+      "settings_by_output_type": {
+        "hard": {"temperature": 0, "top_p": 1, "seed": 20261001, "max_output_tokens": 8, "reasoning": "disabled_if_supported", "constraint": "scalar_0_or_1_if_supported"},
+        "probability": {"temperature": 0, "top_p": 1, "seed": 20261001, "max_output_tokens": 8, "reasoning": "disabled_if_supported", "constraint": "scalar_integer_0_to_100_if_supported"}
+      },
+      "unsupported_settings": [],
+      "actual_request_settings": {},
+      "context_limit": null,
+      "max_concurrent_requests": 15,
+      "usage_semantics": {"input_tokens": null, "output_tokens": "Total generated/billed completion tokens including hidden reasoning when exposed; no double counting", "latency_ms": "Per-request wall-clock elapsed time excluding queue before dispatch"},
+      "aggregate_usage": {"input_tokens": null, "cached_input_tokens": null, "output_tokens": null, "reasoning_tokens": null},
+      "wrapper_module_version_or_sha256": null,
+      "sdk_versions": {},
+      "notes": []
+    }
+  ]
+}

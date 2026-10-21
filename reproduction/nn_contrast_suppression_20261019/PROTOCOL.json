@@ -1,0 +1,6 @@
+{
+  "rule": "If contrast YES, use original control score; otherwise use original NN score. Includes both-labels-YES. Uncertain/unresolved/missing retain original NN. No examples excluded.",
+  "selection": "Fixed user-proposed rule; no cutoff fitting or new model calls. Majority annotation primary, each annotator separately sensitivity.",
+  "evaluation": "Same original paired valid support and same probe/judge thresholds across methods. Fixed50 primary; existing three shared-anchor pairs plus direct judge50 sensitivities.",
+  "limits": "Post-hoc test-set policy evaluation, proposed after inspecting test associations. Not fresh confirmatory evidence. Annotation labels do not contain target gold or observed outcome, but were generated for test only."
+}

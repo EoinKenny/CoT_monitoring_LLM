@@ -1,0 +1,5 @@
+{
+  "python_sources_parsed": 1192,
+  "credential_like_literals": 0,
+  "note": "Syntax and credential scan; historical GPU programs are not rerun by this check."
+}

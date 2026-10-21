@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-18",
+  "conditions": [
+    "baseline",
+    "saliency",
+    "nearest"
+  ],
+  "models": [
+    "qwen",
+    "gemma",
+    "mistral",
+    "olmo",
+    "glm",
+    "qwen122",
+    "claude4.5-sonnet",
+    "claude4.8-opus",
+    "gpt-4o",
+    "gpt-astra"
+  ],
+  "policies": {
+    "unrestricted": "Original 0..101 search retained for exact replay",
+    "positive_cutoff": "1..100; no functional veto requirement",
+    "active": "1..100 and at least one accepted and one rejected raw validation referral",
+    "active20": "Sensitivity: at least20 accepted and20 rejected raw validation referrals",
+    "fixed50": "50; original reference"
+  },
+  "selection": "Maximum weighted validation F1, ties within1e-12 choose highest probe threshold then highest judge cutoff. Test never selects. Infeasible policies retained, not replaced.",
+  "probes": "Original full-validation probe-only retained separately, plus sample-validation-tuned probe-only reference using same candidates/weights as cascade.",
+  "data": "Exact existing IDs, gold, weights, score artifacts; no inference or retraining. API scopes conditional on valid responses. Original scores.npz replay-verified against raw exports.",
+  "bootstrap": "2000 paired stratified test resamples within each cell, census strata fixed; conditional on frozen validation choices. No aggregate independence claim across backbones/judges.",
+  "new_constraints": "Post-hoc protocol amendment; original results retained. Functional activity enforced on validation only; test activity reported."
+}
