@@ -6,6 +6,11 @@ in the Interpretable probe workspace. It is intentionally outside Git.
 - `local_reproduction_snapshot.tar.gz`: existing local analyses, frozen inputs,
   reports, annotations and the original API response/journal ZIP uploads.
 - `LOCAL_MANIFEST.json`: per-file hashes and archive checksum.
+- `paper_ready_csv/`: priority raw CSV snapshot for all selected studies, plus
+  the 600,000 original API responses, 50,000 frozen cases and original integrated
+  scores. `PAPER_CSV_VERIFIED.json` records checksum and row-count validation.
+  Run `python scripts/verify_backup.py --backup /path/to/backup --csv-only` to
+  verify this subset independently of the larger audit-archive transfer.
 - `remote_archives/<experiment>.tar.gz`: original server experiment records,
   prompts, raw batches, failed attempts, split/weight manifests, probe scores,
   fitted artifacts and code, subject to the explicit exclusion manifest.
