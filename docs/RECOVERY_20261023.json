@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-23",
+  "original_root": "/home/ubuntu/experiments/paper-complete-20261021",
+  "recovery_subdirectory": "recovery_20261023",
+  "mistral_indices": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "new_calls": 375000,
+  "glm_recovered": 25000,
+  "mistral_root_cause": "Original controller omitted the environment.PYTHONPATH already frozen in judge_specs.json; Pixtral dependency import failed under shared Transformers 5.18.",
+  "repair": "Apply frozen Mistral Transformers 5.4 / tokenizers 0.22.2 overlay to child processes; no shared environment modification.",
+  "inference_unchanged": [
+    "model revision",
+    "messages and canonical hashes",
+    "tokenization order checksum",
+    "engine settings",
+    "temperature 0",
+    "seed 20261001",
+    "batch size 16",
+    "output budget 8 ablations / 128 mechanism"
+  ],
+  "preservation": "Original failed run directories and all original GLM records remain untouched. Recovered outputs and new attempts are in this directory.",
+  "glm_parser": "Accept complete bare JSON or a single enclosing Markdown JSON fence; require stop finish, exact keys and yes/no/uncertain values. Raw text retained.",
+  "monitor": "recovery_20261023/STATUS.json and per-task runs/*/*/STATUS.json; original root STATUS remains historical.",
+  "resolved_manifest": "recovery_20261023/COLLECTION_RESOLVED.json is written only after all six finish and every original/recovered task output checksum is verified."
+}
