@@ -1,3 +1,7 @@
+> The current paper data is bundled in `data/paper/`; no private restore is
+> needed for `python reproduce_results.py`. This is the historical backup guide.
+> See [current data and methods](REPRODUCTION.md).
+
 # Private data and the instance-retirement checklist
 
 The initial local backup is `paper_data_backup_20261021` beside the repository

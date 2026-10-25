@@ -1,0 +1,26 @@
+{
+  "strings": {
+    "rows": 167016,
+    "sha256": "a418a8bbbc58e8519c85e46eb374ff0423cde6273087fb7d78522bbcccab76f4"
+  },
+  "prompts": {
+    "rows": 625000,
+    "sha256": "db268bf078d4b734a7186c73c1e6eb361701a9d3a4aa5dc7465445b7638fbc3d"
+  },
+  "pairs": {
+    "rows": 25000,
+    "sha256": "6b7fe119e2c782a0e9cb5c7de1297d0770a91b2d9d526646145e18475ba0549f"
+  },
+  "metadata": {
+    "rows": 1,
+    "sha256": "8e6cc064bc9d6bb02f2ca72df8cff08b8c1007c23e0786942862951cd1b81c80"
+  },
+  "models": {
+    "rows": 6,
+    "sha256": "d82fe97c1d1102f96da7e77648d0fc75e86b5102974fd46af4917145d0708e51"
+  },
+  "assignments": {
+    "rows": 586246,
+    "sha256": "0bdd91d17a5384ffe6c688968082ca804a00db51ca9e71b0b55c894706daaacb"
+  }
+}

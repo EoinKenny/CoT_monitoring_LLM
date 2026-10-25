@@ -1,0 +1,43 @@
+{
+  "genres": {
+    "Overall": [
+      "aegis",
+      "beavertails",
+      "fava",
+      "halueval",
+      "high_stakes",
+      "ragtruth",
+      "toxicchat",
+      "toxigen",
+      "wildguard",
+      "wildjailbreak"
+    ],
+    "Toxicity / harmful content": [
+      "aegis",
+      "beavertails",
+      "toxicchat",
+      "toxigen"
+    ],
+    "Safety": [
+      "wildguard",
+      "wildjailbreak"
+    ],
+    "Hallucination": [
+      "fava",
+      "halueval",
+      "ragtruth"
+    ],
+    "High stakes": [
+      "high_stakes"
+    ]
+  },
+  "judge_band": [
+    50,
+    70
+  ],
+  "replicates": 1000,
+  "seed": 20261024,
+  "toxicity_point_estimates_match": true,
+  "source_sha256": "2622dfa882f5f75c98bd2e8efbfb2b33b3250c9689e582b0695188b71c24495d",
+  "new_model_calls": 0
+}

@@ -1,0 +1,1619 @@
+{
+  "inputs": {
+    "results/cells.csv": "d415449c2a5ab1ef0870afad63be7b0d6acf7559148cb02b9ce93f2ae15c7bf9",
+    "breakdowns/curve_coordinates.csv": "220d21e73ee9f4279389b84c474358005ab38fd4cd66bce1862cece727af0b7a"
+  },
+  "anchors": [
+    "baseline",
+    "saliency",
+    "nearest",
+    "nearest2"
+  ],
+  "new_model_calls": 0,
+  "group_figures": [
+    {
+      "kind": "genre",
+      "group": "toxicity",
+      "title": "Toxicity / harmful content",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "toxicchat",
+        "toxigen"
+      ],
+      "slug": "genre_toxicity",
+      "axes": {
+        "fixed": {
+          "recall": [
+            50,
+            83
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 48,
+          "mean_f1": 73.26997214649641,
+          "below_display": 6
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 48,
+          "mean_f1": 76.6690582051825,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 48,
+          "mean_f1": 78.29135339996934,
+          "below_display": 0
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 48,
+          "mean_f1": 79.2945830958107,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 48,
+          "mean_f1": 80.7948993634588,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 48,
+          "mean_f1": 81.71340781785496,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 48,
+          "mean_f1": 82.27577716604169,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 48,
+          "mean_f1": 82.49623457491249,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "genre",
+      "group": "safety",
+      "title": "Safety / jailbreaks",
+      "datasets": [
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "genre_safety",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            85
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 24,
+          "mean_f1": 75.34449298661347,
+          "below_display": 5
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 24,
+          "mean_f1": 77.0640448527641,
+          "below_display": 3
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 24,
+          "mean_f1": 81.54159416537846,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 24,
+          "mean_f1": 82.12486652165377,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 24,
+          "mean_f1": 84.35970286682529,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 24,
+          "mean_f1": 84.34482316086265,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 24,
+          "mean_f1": 84.66759899172979,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 24,
+          "mean_f1": 84.65001980305709,
+          "below_display": 1
+        }
+      ]
+    },
+    {
+      "kind": "genre",
+      "group": "hallucination",
+      "title": "Hallucination",
+      "datasets": [
+        "fava",
+        "halueval",
+        "ragtruth"
+      ],
+      "slug": "genre_hallucination",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            93
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            100
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 36,
+          "mean_f1": 78.92756722632981,
+          "below_display": 7
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 36,
+          "mean_f1": 82.01733232466961,
+          "below_display": 5
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 36,
+          "mean_f1": 86.33183017757531,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 36,
+          "mean_f1": 87.60091831980665,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 36,
+          "mean_f1": 90.48771604262345,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 36,
+          "mean_f1": 90.55913273259858,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 36,
+          "mean_f1": 91.11722538350993,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 36,
+          "mean_f1": 91.14597579522902,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "genre",
+      "group": "high_stakes",
+      "title": "High-stakes",
+      "datasets": [
+        "high_stakes"
+      ],
+      "slug": "genre_high_stakes",
+      "axes": {
+        "fixed": {
+          "recall": [
+            30,
+            54
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        55,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 12,
+          "mean_f1": 58.78975557672041,
+          "below_display": 4
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 12,
+          "mean_f1": 58.47425081333069,
+          "below_display": 3
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 12,
+          "mean_f1": 59.33450678087244,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 12,
+          "mean_f1": 61.99359962371727,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 12,
+          "mean_f1": 82.48416947056502,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 12,
+          "mean_f1": 81.890868748393,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 12,
+          "mean_f1": 82.38753702203452,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 12,
+          "mean_f1": 83.08287320224781,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "claude-opus-5.5",
+      "title": "Claude Opus 5.5",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_claude-opus-5.5",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            83
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            95
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 77.6487852080473,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 78.03004143273502,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 80.5944470188488,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 81.09939960740044,
+          "below_display": 2
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 85.25038587028914,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 85.54550320763418,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 86.0974668250382,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 86.0315985305578,
+          "below_display": 1
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "claude4.5-sonnet",
+      "title": "Claude Sonnet 4.5",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_claude4.5-sonnet",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            95
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 74.92244262059441,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 79.0710247413001,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 80.34495584967144,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 81.18884060570068,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 85.96145886080757,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 86.09243707119843,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 86.53734966616983,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 86.69328971520022,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "claude4.8-opus",
+      "title": "Claude Opus 4.8",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_claude4.8-opus",
+      "axes": {
+        "fixed": {
+          "recall": [
+            50,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            95
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 74.00803098928941,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 75.72227997293103,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 77.53365113137491,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 78.25336368752498,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 85.74300522869119,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 85.90687256459378,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 86.31538968749528,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 86.27076469714217,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "gemma",
+      "title": "Gemma",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_gemma",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            95
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 81.57760570023922,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 80.89798504359246,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 82.2841369450235,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 82.42059561589697,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 86.79333915511097,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 86.60526604738206,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 86.9691179996338,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 86.86104573158327,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "glm",
+      "title": "GLM",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_glm",
+      "axes": {
+        "fixed": {
+          "recall": [
+            20,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        40,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 46.682317786731964,
+          "below_display": 3
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 70.95223816409354,
+          "below_display": 0
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 79.92194465915321,
+          "below_display": 0
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 80.89364822725862,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 79.33437299253595,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 83.09461531604113,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 83.8505933946029,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 84.10077227740217,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "gpt-4o",
+      "title": "GPT-4o",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_gpt-4o",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            82
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 80.7769204178799,
+          "below_display": 0
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 78.84680650027452,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 80.43921337302189,
+          "below_display": 0
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 80.92768238205092,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 84.59130475815107,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 83.09609115818172,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 83.9676764448214,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 84.40341494899647,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "gpt-5.5",
+      "title": "GPT-5.5",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_gpt-5.5",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            82
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 80.14687739695844,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 79.94224262762417,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 81.11340280925742,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 81.31879991434329,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 84.55466604492297,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 85.08446226976312,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 85.46925036374935,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 85.68190913175829,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "gpt-astra",
+      "title": "GPT Astra",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_gpt-astra",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            82
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 78.01153692137868,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 76.94223855624226,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 78.46262157216638,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 78.62697067643333,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 85.21967747790542,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 85.13625334848767,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 85.59888262432612,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 85.76417473178007,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "mistral",
+      "title": "Mistral",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_mistral",
+      "axes": {
+        "fixed": {
+          "recall": [
+            40,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        60,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 64.59218495711751,
+          "below_display": 4
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 71.28375301519989,
+          "below_display": 3
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 74.1222292770124,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 78.34652113443556,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 82.88196746994777,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 84.10848719084011,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 84.06954195249084,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 84.35527972982115,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "olmo",
+      "title": "OLMo",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_olmo",
+      "axes": {
+        "fixed": {
+          "recall": [
+            45,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        60,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 67.64602419758134,
+          "below_display": 3
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 70.20701890547922,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 75.37505193329483,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 80.32878621886258,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 83.85253508071061,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 84.33673282830532,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 83.35970637257172,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 83.91430186216586,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "qwen",
+      "title": "Qwen 27B",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_qwen",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            95
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 79.49472769396303,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 77.40670517025288,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 80.18499265639517,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 80.86643175218765,
+          "below_display": 1
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 85.12128330959845,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 85.15342032788911,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 86.19451497136859,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 86.546894343471,
+          "below_display": 0
+        }
+      ]
+    },
+    {
+      "kind": "judge",
+      "group": "qwen122",
+      "title": "Qwen 122B",
+      "datasets": [
+        "aegis",
+        "beavertails",
+        "fava",
+        "halueval",
+        "high_stakes",
+        "ragtruth",
+        "toxicchat",
+        "toxigen",
+        "wildguard",
+        "wildjailbreak"
+      ],
+      "slug": "judge_qwen122",
+      "axes": {
+        "fixed": {
+          "recall": [
+            55,
+            84
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        },
+        "tuned": {
+          "recall": [
+            55,
+            90
+          ],
+          "precision": [
+            80,
+            100
+          ]
+        }
+      },
+      "swarm_y": [
+        65,
+        100
+      ],
+      "stats": [
+        {
+          "policy": "fixed50",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 81.70214428812574,
+          "below_display": 0
+        },
+        {
+          "policy": "fixed50",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 79.09435024659219,
+          "below_display": 2
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 83.11767186785927,
+          "below_display": 1
+        },
+        {
+          "policy": "fixed50",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 83.19826418952997,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "baseline",
+          "dots": 10,
+          "mean_f1": 85.71158869443431,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "saliency",
+          "dots": 10,
+          "mean_f1": 84.77371211688408,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest",
+          "dots": 10,
+          "mean_f1": 86.58353348196066,
+          "below_display": 0
+        },
+        {
+          "policy": "tuned_shared",
+          "condition": "nearest2",
+          "dots": 10,
+          "mean_f1": 86.3434884925604,
+          "below_display": 0
+        }
+      ]
+    }
+  ],
+  "interpretation": "Equal-weight macro means over backbone/judge/dataset cells. Every swarm point averages five backbones; tuned points also average four shared anchors. All observations contribute to means even if outside display. PR zooms adapt only to retain operating points and reduce empty fixed-probe space; y scale shared within each pair. API coverage is judge-specific.",
+  "matched_published_summary_values": 128
+}

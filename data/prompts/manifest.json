@@ -1,0 +1,60 @@
+{
+  "models": [
+    "claude4.5-sonnet",
+    "claude4.8-opus",
+    "gpt-4o",
+    "gpt-astra",
+    "claude-opus-5.5",
+    "gpt-5.5"
+  ],
+  "static_calls": 2864244,
+  "calls_per_model": {
+    "claude4.5-sonnet": {
+      "reason_after": 1915,
+      "reason_first": 1915,
+      "ablation": 350000,
+      "two_nn": 50000,
+      "mechanism": 25000
+    },
+    "claude4.8-opus": {
+      "reason_after": 1435,
+      "reason_first": 1435,
+      "ablation": 350000,
+      "two_nn": 50000,
+      "mechanism": 25000
+    },
+    "gpt-4o": {
+      "reason_after": 3065,
+      "reason_first": 3065,
+      "ablation": 350000,
+      "two_nn": 50000,
+      "mechanism": 25000
+    },
+    "gpt-astra": {
+      "reason_after": 707,
+      "reason_first": 707,
+      "ablation": 350000,
+      "two_nn": 50000,
+      "mechanism": 25000
+    },
+    "claude-opus-5.5": {
+      "main": 150000,
+      "ablation": 350000,
+      "two_nn": 50000,
+      "mechanism": 25000
+    },
+    "gpt-5.5": {
+      "main": 150000,
+      "ablation": 350000,
+      "two_nn": 50000,
+      "mechanism": 25000
+    }
+  },
+  "unique_prompts": 625000,
+  "new_judge_trace_calls": "Dynamic: twice the number of own valid unambiguous control-versus-NN test flips at50; max50000 per new model",
+  "native_thinking": false,
+  "no_target_gold_labels": true,
+  "retained_reference_labels": true,
+  "old_trace_selections_reused": true,
+  "format": "Lossless string-interned SQLite catalog; materialize CSV or stream exact messages with kit.py. Metadata never sent to judge."
+}

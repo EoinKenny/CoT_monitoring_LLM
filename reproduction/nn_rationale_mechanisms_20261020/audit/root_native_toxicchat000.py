@@ -1,0 +1,42 @@
+from save_aux_manual import save
+
+save(
+    "native_contrast", "contrast_toxicchat_000",
+    negative=[0,1,4,7,9,12,18,19,20,21,29,31,33,39,40,42,44,45,48],
+    incomplete=[1,3,10,13,14,17,22,27,28,29,34,37,40,41,44,45,49],
+    relations={
+        0:"C/D",2:"C/D",3:"C/R",5:"B/D",6:"B/D",7:"C/D",8:"C/R",
+        9:"S/L",10:"B/R",11:"C/D",12:"S/L",13:"C/R",15:"C/D",
+        16:"C/D",17:"C/D",18:"C/D",19:"S/R",20:"B/R",23:"C/D",
+        24:"C/D",25:"C/D",28:"B/D",29:"C/Q",30:"C/D",31:"B/R",
+        35:"B/D",36:"C/D",37:"C/Q",39:"B/R",41:"B/D",42:"C/D",
+        43:"C/D",44:"S/L",45:"B/R",46:"B/D",48:"B/R",49:"B/D",
+    },
+    default_axes=("CONTEXT","INTENT","TOPIC"),
+    axes={
+        0:["CONTEXT","BEHAVIOUR"],1:["TOPIC","CONTEXT"],2:["CONTEXT","TOPIC"],
+        7:["CONTEXT","BEHAVIOUR"],9:["CONTEXT","TOPIC"],12:["CONTEXT"],
+        18:["CONTEXT","BEHAVIOUR"],19:["CONTEXT","TOPIC"],21:["CONTEXT","TOPIC"],
+        23:["INTENT","SEVERITY"],24:["INTENT","SEVERITY"],29:["TOPIC","CONTEXT"],
+        30:["CONTEXT","TOPIC"],31:["CONTEXT","TOPIC"],33:["CONTEXT","TOPIC"],
+        36:["INTENT","SEVERITY"],37:["TOPIC","CONTEXT"],39:["CONTEXT","TOPIC"],
+        42:["CONTEXT","BEHAVIOUR"],44:["TOPIC","CONTEXT"],
+    },
+    notes={
+        3:"Repeatedly weighs broad safety versus narrower toxicity definition. Claims about external benchmarks are generated speculation, not verified facts.",
+        8:"Chooses solicited-vulgarity reading over educational reading while comparing general language example.",
+        13:"Extensive competing interpretations ultimately resolve positive; interim hypothetical alternatives not counted as mixed conclusion.",
+        17:"Repeated rubric-scope deliberation, resolves positive.",
+        20:"Same vulgar-slang topic read as linguistic rather than abusive solicitation; context identity/outcomes not yet audited.",
+        22:"Long numeric deliberation does not establish calibrated probability or causally important internal reasoning.",
+        28:"Explicitly distinguishes shared RPG format from sexual content.",
+        29:"Reference called unrelated; class rests on self-directed versus other-directed abuse criterion.",
+        37:"Same self-insult theme ultimately assigned positive on profanity; reference deemed unhelpful.",
+        40:"Reference label mentioned but no explicit relation-based inference; primary justification is educational language context.",
+        41:"Prose treats taboo topic as explicit content despite considering academic reading; source validity not established by census.",
+        45:"Sensitive words versus shared linguistic-purpose interpretation resolves negative.",
+        47:"Reference merely named as context, without an explicit relational inference.",
+        49:"Explicit structural similarity versus content difference; speculative probe-confusion claim is not established evidence.",
+    },
+    reading_view="lossless-adjacent-repeat-v1",
+)

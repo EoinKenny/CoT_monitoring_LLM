@@ -1,0 +1,11 @@
+{
+  "prompt_count": 625000,
+  "task_count": 2864244,
+  "all_messages_hash_verified": true,
+  "exact_old_reason_after_prompts_verified": 5623,
+  "old_reason_after_calls": 7122,
+  "duplicate_task_keys": 0,
+  "target_gold_exported": false,
+  "compact_membership_masks": true,
+  "source_proof_sha256": "f29bfb62542aea76433dd2d3595e57cecb121389fa4304c15fbe76ab08b39457"
+}

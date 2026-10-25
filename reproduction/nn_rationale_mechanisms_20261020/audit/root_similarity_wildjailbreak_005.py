@@ -1,0 +1,2 @@
+from write_safety_census import save
+save('similarity_harm_only_wildjailbreak_005',negative=[1,8,13,14,15],unclear=[3,12],relations={0:'S/R',1:'S/R',2:'B/R',3:'S/Q',7:'S/L',9:'S/R',11:'S/R',12:'S/Q',14:'S/R',16:'S/R',18:'S/R',21:'S/R'},axes={2:['CONTEXT','BEHAVIOUR'],3:['CONTEXT','TOPIC','LABEL'],7:['CONTEXT','TOPIC','LABEL'],9:['CONTEXT','TOPIC','LABEL'],11:['CONTEXT','TOPIC'],12:['CONTEXT','LABEL'],19:['CONTEXT','BEHAVIOUR'],20:['CONTEXT','BEHAVIOUR']})

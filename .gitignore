@@ -25,3 +25,17 @@ __pycache__/
 *.pyc
 .venv*/
 .DS_Store
+
+# The explicitly curated paper release is versioned; other raw archives stay local.
+!data/
+data/*
+!data/paper/
+!data/prompts/
+!data/paper/**
+!data/prompts/**
+data/prompts/prompts*.sqlite
+!assets/
+!assets/*.png
+!assets/*.svg
+!docs/reference_figures.pdf
+configs/my_models.json

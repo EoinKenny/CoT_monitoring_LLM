@@ -1,0 +1,33 @@
+{
+  "concurrency": 4,
+  "trace_labeler": "trace-labeler",
+  "models": [
+    {
+      "alias": "source-judge",
+      "provider": "anthropic",
+      "url": "https://api.anthropic.com/v1/messages",
+      "model": "YOUR_EXACT_PROVIDER_MODEL_ID",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "native_thinking": false,
+      "extra_body": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    },
+    {
+      "alias": "trace-labeler",
+      "provider": "openai-compatible",
+      "url": "http://localhost:8000/v1/chat/completions",
+      "model": "Qwen/Qwen3.5-122B-A10B-GPTQ-Int4",
+      "native_thinking": false,
+      "token_parameter": "max_tokens",
+      "extra_body": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        },
+        "seed": 20261001
+      }
+    }
+  ]
+}

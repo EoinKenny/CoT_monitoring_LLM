@@ -1,0 +1,14 @@
+{
+  "CATALOG_LOGICAL.json": "1ba6a6a47efd11f5cc8cb95fd49b6187edddc51468a0f7407edbff51285be9dc",
+  "QA.json": "dad558c6f49af301c81062fe09f7b81192b7f7e88a226d3580d304eb6b72acfa",
+  "README.txt": "ebdac66224a2568fa97dee513c86dbea0b25d9cc88331c44b15f2d00c10cf32f",
+  "catalog.jsonl.xz": "4d8fe68ed9553ff8148ee66a1fe624002dd22de4fceed43cf89b7a5ab7bfff87",
+  "kit.py": "e5baebca01abf31b37001bbb802fc22b00a025ea023efcfd989e625ccf342995",
+  "manifest.json": "2db79a67ae24b0bf2e28e2a7289fdec5c8559d44dad566b7214b2437e6d7333a",
+  "model_manifest.template.json": "e1fbc7decb8c46020e9d364194c08b35e9ecbf00971338efb26b9320f55ab473",
+  "prompt_examples.csv": "46916be06ebe4953e12ee0592a105a6761b1134e3518df5ff8e3acc17e53e04c",
+  "responses_template.csv": "fe747378a94729ccd49fab622865f9e2e89c3e5cb3721ddfc7cbb75d6811997c",
+  "restore.py": "39ab808f20705ce7eb2c6e66312845ab695803c171508c751f7c8ebb84fab034",
+  "task_counts.csv": "a6ae1911cd34d4bae4ccee7bc1993d0e8448023a4e38a7bd5e99693f7734d9da",
+  "test_kit.py": "ab9d500e1cb9b8521b51d1b336ebdade20a19a31f758257701f594902d1e84ad"
+}

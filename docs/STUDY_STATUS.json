@@ -1,54 +1,7 @@
 {
-  "snapshot_date": "2026-10-21",
-  "main_local": {
-    "judges": 6,
-    "backbones": 5,
-    "datasets": 10,
-    "conditions": [
-      "baseline",
-      "saliency",
-      "nearest"
-    ],
-    "responses": 900000,
-    "state": "completed"
-  },
-  "original_api": {
-    "judges": 4,
-    "rows_received": 600000,
-    "state": "integrated_with_invalid_and_missing_outcomes_explicit"
-  },
-  "two_nn_local": {
-    "responses": 300000,
-    "state": "completed"
-  },
-  "completed_local_ablations": {
-    "backbone_judge_pairs": 5,
-    "responses": 350000,
-    "state": "completed"
-  },
-  "reason_after_local": {
-    "selected_cases": 35919,
-    "state": "accounted_including_invalid_and_missing"
-  },
-  "reason_first_local": {
-    "selected_cases": 35919,
-    "token_cap": 512,
-    "state": "accounted_including_invalid_and_missing"
-  },
-  "mechanism_annotation_local": {
-    "annotators": 3,
-    "contexts_each": 25000,
-    "state": "completed_with_invalid_outcomes_retained"
-  },
-  "missing_cell_completion": {
-    "new_calls_planned": 1825000,
-    "state": "running_at_snapshot",
-    "final_backup_required": true
-  },
-  "six_api_export": {
-    "static_calls": 2864244,
-    "new_model_reasoning": "dynamic own-model original control-versus-NN test flips",
-    "state": "prepared_not_collected_here"
-  },
-  "scope": "Counts across studies must not be treated as independent observations; canonical pairing and reused-output provenance control analysis."
+  "current_release": "2026-10-25",
+  "status": "Current paper figures reproducible from bundled data",
+  "details": "release/RELEASE_STATUS.json",
+  "historical_snapshot": "release/STUDY_STATUS_20261021.json",
+  "command": "python reproduce_results.py"
 }

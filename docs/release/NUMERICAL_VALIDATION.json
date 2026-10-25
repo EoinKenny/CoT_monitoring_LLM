@@ -1,0 +1,29 @@
+{
+  "main_cells.csv.gz": {
+    "rows": 12000,
+    "max_absolute_difference": 1.6653345369377348e-15
+  },
+  "ablation_cells.csv.gz": {
+    "rows": 5400,
+    "max_absolute_difference": 1.6653345369377348e-15
+  },
+  "main_curves.csv.gz": {
+    "rows": 13156,
+    "max_absolute_difference": 5.440092820663267e-15
+  },
+  "label_cells.csv.gz": {
+    "rows": 3600,
+    "max_absolute_difference": 2.4158453015843406e-13
+  },
+  "label_prevalence.json": {
+    "rows": 6,
+    "max_absolute_difference": 0.0
+  },
+  "contrast_bins.json": {
+    "rows": 50,
+    "max_absolute_difference": 0.0
+  },
+  "trace_joints.json": {
+    "tables_checked": 2
+  }
+}

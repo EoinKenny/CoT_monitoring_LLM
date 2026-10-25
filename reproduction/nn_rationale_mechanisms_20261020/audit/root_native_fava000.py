@@ -1,0 +1,35 @@
+from save_aux_manual import save
+
+save(
+    "native_contrast", "contrast_fava_000",
+    negative=[0,1,2,3,4,5,6,7,8,9,11,13,14,16,18,19,21,22,23,24,26,27,29,32,33,34,35,37,39,41,43,45],
+    incomplete=[21,30],
+    relations={
+        0:"C/D",1:"C/D",2:"C/D",3:"C/D",4:"C/D",6:"C/D",7:"C/D",
+        9:"C/D",11:"C/D",12:"C/R",13:"C/D",15:"C/R",17:"C/R",
+        19:"C/D",21:"C/D",22:"C/D",24:"C/D",26:"C/D",27:"C/D",
+        29:"C/D",30:"C/R",31:"S/R",32:"C/D",33:"C/D",34:"C/D",
+        35:"C/D",37:"C/D",38:"S/L",39:"C/D",41:"C/D",45:"C/D",
+        46:"S/R",49:"S/R",
+    },
+    default_axes=("FACT",),
+    notes={
+        2:"Treats subjective renowned description as acceptable minor stylistic addition, contrasted with blatant reference entity errors.",
+        4:"Acknowledges taxonomy includes subjective assertions but dismisses rhetorical praise; uses clear invented-history neighbour as comparison.",
+        8:"Acknowledges source only states appointment as first bishop but accepts leadership-caused-establishment claim as inference.",
+        12:"Conflicting dates in supplied evidence distinguished from actual invented event/promotional claims. Reference contains clearer Oscar invention.",
+        15:"Similar distinction to row12; accepts date supported by one source but calls resurfacing narrative invented.",
+        17:"Revises initial fictional-case-study exemption; ultimately applies unsupported-content criterion even without direct contradiction.",
+        19:"Allows subjective scenic and audience-reaction filler after comparing obvious contradiction in neighbour.",
+        21:"Capped mid-repeat after clear negative conclusion; accepts establishment inference and praise. Quality marks incompleteness, not uncertain class.",
+        26:"Explicitly treats unsupported establishment relation as close enough to first-bishop appointment; contrasts neighbour's obvious contradiction.",
+        29:"Explicitly calls establishment relation reasonable inference and speech filler despite not directly supported.",
+        30:"Capped during final enumeration after resolving invented case-study content as positive.",
+        35:"Conflicting evidence resolved by one supporting passage; subjective additions treated stylistic relative to blatant neighbour contradiction.",
+        38:"Same case-study format and unsupported added scenario explicitly support same positive classification; source/outcome not yet audited.",
+        42:"Explicitly brackets neighbour; decision argued from current reference passage, not nearest training example.",
+        45:"Explicitly uses reference error pattern to ignore smaller subjective additions in current target.",
+        49:"Reference and target share unsupported added content; speculative benchmark provenance not verified.",
+    },
+    reading_view="lossless-adjacent-repeat-v1",
+)

@@ -1,0 +1,16 @@
+{
+  "prompts": 625000,
+  "distinct_catalog_case_keys": 75000,
+  "frozen_examples": 50000,
+  "studies": {
+    "main": 150000,
+    "reason_after": 25000,
+    "reason_first": 25000,
+    "ablation": 350000,
+    "two_nn": 50000,
+    "mechanism": 25000
+  },
+  "all_case_dataset_split_mappings_valid": true,
+  "mechanism_mapping": "case_identities.json maps mechanism case_key to backbone, unit_id, dataset; pair_mapping.jsonl.gz maps unit_id (also prompt_id) to the frozen sample_id. Other studies map directly to sample_id.",
+  "logical_catalog_checksums": "verified by exact catalogue restore"
+}

@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "cells.csv": {
+      "unchanged_rows": 9600,
+      "new_1nn_anchor_rows": 2400
+    },
+    "thresholds.csv": {
+      "unchanged_rows": 1800,
+      "new_1nn_anchor_rows": 600
+    },
+    "tradeoff_points.csv.gz": {
+      "unchanged_rows": 295200,
+      "new_1nn_anchor_rows": 98400
+    },
+    "fixed_probe_curves.csv.gz": {
+      "unchanged_rows": 244800,
+      "new_1nn_anchor_rows": 0
+    },
+    "coverage.csv": {
+      "unchanged_rows": 600,
+      "new_1nn_anchor_rows": 0
+    },
+    "probe_only.csv": {
+      "unchanged_rows": 1200,
+      "new_1nn_anchor_rows": 0
+    }
+  },
+  "max_absolute_floating_point_differences": {
+    "fn": 1.8189894035458565e-12,
+    "tn": 1.8189894035458565e-12,
+    "recall": 3.3306690738754696e-16,
+    "f1": 3.3306690738754696e-16,
+    "accuracy": 4.440892098500626e-16,
+    "validation_f1": 3.3306690738754696e-16
+  },
+  "source_scores_sha256": "2d34cba632364bc25f46efc3d8fc43b3e29d6869e6dd0dbf4410d773d3448f87",
+  "anchors": [
+    "baseline",
+    "saliency",
+    "nearest",
+    "nearest2"
+  ],
+  "fixed50_and_previous_anchor_thresholds_membership_counts_exactly_unchanged": true,
+  "aggregate_metrics_reproduced_with_floating_point_roundoff": true,
+  "new_inference_calls": 0
+}

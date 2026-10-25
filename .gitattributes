@@ -1,0 +1,4 @@
+# Keep scientific records and archived prompt bytes exactly as collected.
+data/** -text whitespace=-trailing-space
+reproduction/** -text whitespace=-trailing-space
+assets/*.svg whitespace=-trailing-space

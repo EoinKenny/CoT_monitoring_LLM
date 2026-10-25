@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-25",
+  "judges": 12,
+  "backbones": 5,
+  "datasets": 10,
+  "main_conditions": [
+    "baseline",
+    "saliency",
+    "nearest",
+    "nearest2"
+  ],
+  "shared_anchors": 4,
+  "reproduced_pdf_pages": 7,
+  "appendix_comparison_grids": 8,
+  "new_inference_calls": 0,
+  "plotting": "clean Python 3.12 environment passed",
+  "recomputation": "all metrics and bootstrap summaries reproduced",
+  "catalog": "625000 prompts restored and logical checksums verified",
+  "collection": "mock transport and resume tests; no paid/live model calls",
+  "data_files": 36,
+  "source_code_files": 1119,
+  "historical_status_file": "docs/release/STUDY_STATUS_20261021.json",
+  "catalog_mapping": "all 625000 prompt case/dataset/split mappings validated",
+  "isolated_checkout": "full plotting and four collector tests passed without original workspace dependencies"
+}

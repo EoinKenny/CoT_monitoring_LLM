@@ -1,0 +1,26 @@
+{
+  "scope": "Uniform Qwen122 expressed-mechanism labelling of all saved probability-first explanations for original fixed50 control-to-1NN test flips across all12 judges, five backbones, ten datasets.",
+  "selection": "Only saved flip records; no fresh source judge calls or retries. Eligible text includes capped/invalid-format prose; assessability explicitly labelled. Missing/errors/ambiguous outcomes retained outside inference.",
+  "labels": [
+    "similarity",
+    "contrast",
+    "assessable"
+  ],
+  "allowed": [
+    "yes",
+    "no",
+    "uncertain"
+  ],
+  "blinding": "Only explanation text sent to labeler. No target gold, original scores, pair mechanism labels, correctness, judge identity, or target/neighbour text; latter omitted deliberately to prevent inferring mechanisms absent from explanation.",
+  "meaning": "Expressed evidence only, not private reasoning or causal use. Original pair labels joined privately after annotation.",
+  "decoding": {
+    "temperature": 0,
+    "seed": 20261001,
+    "max_tokens": 128,
+    "batch_size": 4,
+    "native_thinking": false
+  },
+  "resume": "Never retry attempted units with no durable raw output. Commit invalid outputs explicitly. Source raw and all new raw preserved.",
+  "disk_reserve_gib": 20,
+  "analysis": "Compare original independent pair labels with expressed labels; by judge/dataset/outcome, plus retained-answer subset; cluster repeated targets. Report unassessable, missing and truncated counts. Qwen self-annotation sensitivity excludes Qwen122 source judge."
+}

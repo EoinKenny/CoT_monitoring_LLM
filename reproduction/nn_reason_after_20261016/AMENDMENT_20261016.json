@@ -1,0 +1,7 @@
+{
+  "user_authorization": "Just go ahead and run all the data collection if there is a 256 token limit, it should not take too long",
+  "change": "Remove explanation-truncation stop only. Preserve the first integer as the scored probability; record reasoning_complete=false for capped traces. No changed prompts, native thinking settings, seeds, batch sizes, model revisions, constraints or max_tokens=256. Never regenerate committed outputs.",
+  "provenance": "Original run_judge.py, CODE_FROZEN.json, PROTOCOL.json and all committed configurations remain immutable. source_sha256 in compatible inference config references original source; per-phase EXECUTION_v2 receipts record actual amended runner digest and this amendment.",
+  "failed_attempt": "OLMo first backbone smoke produced 16 committed outputs including one length-terminated trace; reuse all16 exactly. Original failed controller and exception logs preserved.",
+  "analysis": "Report truncation and trace/probability disagreement separately. Do not replace the first probability with a later number appearing in the explanation."
+}

@@ -1,0 +1,63 @@
+{
+  "records": 45638,
+  "unique_annotation_calls": 44089,
+  "annotation_call_status": {
+    "valid": 43560,
+    "invalid": 529
+  },
+  "record_annotation_status": {
+    "valid": 45037,
+    "invalid": 559,
+    "not_sent": 42
+  },
+  "assessability": {
+    "yes": 44552,
+    "unavailable": 601,
+    "no": 430,
+    "uncertain": 55
+  },
+  "distinct_targets": 13168,
+  "backbone_targets": 20217,
+  "source_judges": [
+    "claude-opus-5.5",
+    "claude4.5-sonnet",
+    "claude4.8-opus",
+    "gemma",
+    "glm",
+    "gpt-4o",
+    "gpt-5.5",
+    "gpt-astra",
+    "mistral",
+    "olmo",
+    "qwen",
+    "qwen122"
+  ],
+  "original_flip_counts": {
+    "Corrects judge": 29376,
+    "Misleads judge": 16262
+  },
+  "unknown_trace_labels": {
+    "similarity": {
+      "no": 34700,
+      "yes": 9719,
+      "uncertain": 618,
+      "unavailable": 601
+    },
+    "contrast": {
+      "no": 40058,
+      "yes": 4361,
+      "uncertain": 618,
+      "unavailable": 601
+    }
+  },
+  "bootstrap_replicates": 1000,
+  "bootstrap_seed": 20261025,
+  "source_sha256": {
+    "/Users/eoinkenny/.codex/.chatgpt-projects/g-p-6ab51e7550bc81919a7e0121a4671c91/reproduction/nn_trace_labels_qwen122_revision_20261024/annotations.jsonl": "fd675ee8b58d5201f160fd4f246d01cf7487acb408d78d192d11761988f06230",
+    "/Users/eoinkenny/.codex/.chatgpt-projects/g-p-6ab51e7550bc81919a7e0121a4671c91/reproduction/nn_trace_labels_qwen122_revision_20261024/mapping_PRIVATE.jsonl": "20f927650120962886349aeceaf906ec271cf688731f76d9963bb996bdb002b4",
+    "/Users/eoinkenny/.codex/.chatgpt-projects/g-p-6ab51e7550bc81919a7e0121a4671c91/reproduction/mechanisms_all12_20261023/annotations.npz": "0c6672c6ca8b4f24c253f42998b5410f77cb0c0f493fb09265454d7ae32e267f",
+    "/Users/eoinkenny/.codex/.chatgpt-projects/g-p-6ab51e7550bc81919a7e0121a4671c91/reproduction/nn_contrast_extremity_20261024/results/joined.pkl": "2622dfa882f5f75c98bd2e8efbfb2b33b3250c9689e582b0695188b71c24495d"
+  },
+  "method": "Design-weighted joint proportions within source judge/dataset/backbone; average backbones, datasets, source judges, then derive conditional rates and phi. 1000 target-ID resamples within dataset shared across judges/backbones. Labels fixed; pointwise intervals. Fixed-50 original direct-judge flips, no probe referral filter. Unknown excluded separately by feature. Source judge excluded from original consensus. One Qwen122 trace labeler; not three.",
+  "new_inference_calls": 0
+}

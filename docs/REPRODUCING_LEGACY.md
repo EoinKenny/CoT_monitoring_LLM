@@ -1,3 +1,6 @@
+> Current release: use `python reproduce_results.py`. This document describes
+> the historical ten-judge archive; see [current reproduction](REPRODUCTION.md).
+
 # Historical experiment sources
 
 The portable main evaluator is `scripts/reproduce_main.py`. The historic sources
