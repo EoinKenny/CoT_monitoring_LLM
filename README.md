@@ -1,6 +1,6 @@
 # When nearest neighbours help an LLM judge
 
-![Title figure placeholder — replace with the final illustration](assets/title_figure.png)
+![Nearest-neighbour explanations for LLM judges](assets/title_figure.png)
 
 Twelve judges, five backbones, ten datasets. Includes frozen scores, annotations,
 plot inputs, exact prompts, and experiment sources. **No GPU or API key is needed
@@ -40,4 +40,3 @@ it does not retrain backbones or change the published data. Raw responses,
 failures, configuration, and score arrays are saved separately. Re-running resumes
 only unattempted requests. [Collection options](docs/COLLECTION.md) ·
 [Data and methods](docs/REPRODUCTION.md) · [Historical sources](docs/REPRODUCING_LEGACY.md).
-Replace `assets/title_figure.png` / `.svg` with the final title illustration.
