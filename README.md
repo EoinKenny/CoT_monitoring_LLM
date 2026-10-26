@@ -6,6 +6,9 @@ Twelve judges, five backbones, ten datasets. Includes frozen scores, annotations
 plot inputs, exact prompts, and experiment sources. **No GPU or API key is needed
 for the figures.**
 
+[Download prompts and raw responses](docs/RAW_DATA.md) — optional data supplement,
+with source mappings and checksums.
+
 ## Reproduce all figures
 
 ```bash
