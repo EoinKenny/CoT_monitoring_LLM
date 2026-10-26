@@ -1,6 +1,7 @@
-import hashlib, json, tempfile, unittest, zipfile
+import hashlib, json, lzma, tempfile, unittest, zipfile
 from pathlib import Path
 from scripts.verify_raw_supplement import verify
+from scripts.audit_raw_prompt_coverage import audit
 
 class RawSupplementTests(unittest.TestCase):
     def package(self, folder, member='responses.csv', payload=b'prompt_id,response\na,75\n', recorded_hash=None):
@@ -33,5 +34,21 @@ class RawSupplementTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp);self.package(p,member='../outside.csv')
             with self.assertRaisesRegex(ValueError,'Unsafe member'):verify(p,True)
+
+    def test_coverage_keeps_failures_duplicates_and_missing_ids(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)
+            catalogue=p/'catalogue.xz'
+            with lzma.open(catalogue,'wt') as f:
+                f.write(json.dumps(['p',['known','main','[]',0,'test','nearest',None]])+'\n')
+            with zipfile.ZipFile(p/'raw-responses-001.zip','w') as z:
+                z.writestr('api/responses.csv',
+                    'prompt_id,status\nknown,ok\nknown,blocked\nmissing,invalid\n,error\n')
+            result=audit(p,catalogue)['response_tables'][0]
+            self.assertEqual(result['rows'],4)
+            self.assertEqual(result['matched_rows'],2)
+            self.assertEqual(result['unmatched_rows'],1)
+            self.assertEqual(result['blank_identifier_rows'],1)
+            self.assertEqual(result['statuses']['blocked'],1)
 
 if __name__=='__main__':unittest.main()

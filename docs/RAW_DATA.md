@@ -5,6 +5,10 @@ contains saved records for the paper experiments. It is optional: the small
 `data/paper/` inputs already reproduce all plotted statistics. Release assets
 keep large raw records out of normal Git clones.
 
+The complete supplement is **6.08 GB across 15 ZIPs**. Download only
+`raw-responses-*.zip` for response tables (774 MB), or add prompt contexts and
+trace-label records for the full audit trail.
+
 ```bash
 gh release download raw-data-2026-10-26 --repo EoinKenny/CoT_monitoring_XAI --dir data/raw
 python scripts/verify_raw_supplement.py data/raw --deep
@@ -13,6 +17,17 @@ python scripts/verify_raw_supplement.py data/raw --deep
 The download inherits the repository's access permissions. Each ZIP is independent
 and can be unpacked into the same directory. `RAW_DATA_MANIFEST.json` verifies
 every asset; each ZIP's `MEMBERS.json` verifies its files and records their sources.
+`PROMPT_RESPONSE_COVERAGE.json` records the identifier audit: all 7,114,124 saved
+rows checked across the core study tables match saved prompts, and all 44,089
+approved Qwen trace annotations match their input units. These counts include
+overlapping snapshots and reused records. Extra historical exploratory tables
+are explicitly marked outside that linkage audit.
+
+To repeat the linkage check after downloading all ZIPs:
+
+```bash
+python scripts/audit_raw_prompt_coverage.py data/raw
+```
 
 ## Contents
 
