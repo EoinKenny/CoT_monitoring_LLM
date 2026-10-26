@@ -1,0 +1,37 @@
+{
+  "name": "finegrained-fp8",
+  "id": "_finegrained_fp8_cuda_89d4054",
+  "version": 4,
+  "kernels-minver": "0.14.0",
+  "license": "Apache-2.0",
+  "python-depends": [],
+  "kernel-depends": [],
+  "backend": {
+    "type": "cuda"
+  },
+  "digest": {
+    "algorithm": "sha256",
+    "files": {
+      "__init__.py": "zhfXqFHpZ1lPv0hUwaOhJHxmcDq2QcE9R+9cgVfLTI4=",
+      "_ops.py": "6+33fWEcRx5xMQVuDzPb58r9BOd0Fsv5Xt5Dxie8IK4=",
+      "batched.py": "1Zu9NtK5eY4Jo6hvnzACQ49umOsAVkYXD905p1/Bdeo=",
+      "bayesian_autotuner.py": "jBUYvyfpEHsTBgFlpt2Ts5emz+CSMyvjc1TxUfZKVrg=",
+      "fused_batched.py": "5xLKav8dWJqRYkKdVGx14uL9FoMxqeHCEVMyBAdnIDQ=",
+      "fused_grouped.py": "VYk3Zs2cNKT+m1YlTzyM2w3izbgSi7V2ZyTBzvpvMdA=",
+      "grouped.py": "OCsDs48NBTHU/G0s5edEFXb/m5o48+MgD2FqwGDGkgY=",
+      "matmul.py": "D2aLXZ4OfbBnXqRRgFK5Mggw9k8kaPLsvK59CHYzaAc=",
+      "utils.py": "LLh/mKs4XkHJX98eG+x3eiXI4LsAOjV6csB6U8K3tdA="
+    }
+  },
+  "provenance": {
+    "kernel-builder": {
+      "version": "0.17.0-dev0",
+      "commit": "a7f0afdb29a6a3372b1d47180cc0c182454c5e3b",
+      "dirty": false
+    },
+    "kernel": {
+      "commit": "89d4054f3755039d5474cfed03f06de026ee2ce7",
+      "dirty": false
+    }
+  }
+}

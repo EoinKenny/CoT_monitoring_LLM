@@ -1,0 +1,197 @@
+{
+  "mistral": {
+    "repo": "mistralai/Mistral-Small-4-119B-2603-NVFP4",
+    "revision": "45331841b631f4e281df8e959ea3cc9beb84298a",
+    "context_limit": 1048576,
+    "chat_template_kwargs": {
+      "add_generation_prompt": true,
+      "reasoning_effort": "none",
+      "tokenize": true
+    },
+    "engine": {
+      "tokenizer_mode": "mistral",
+      "config_format": "mistral",
+      "load_format": "mistral",
+      "dtype": "auto",
+      "max_num_seqs": 16,
+      "max_num_batched_tokens": 4096,
+      "gpu_memory_utilization": 0.9,
+      "enable_prefix_caching": false,
+      "enforce_eager": true,
+      "seed": 20261001,
+      "attention_backend": "TRITON_MLA",
+      "limit_mm_per_prompt": {
+        "image": 0
+      },
+      "structured_outputs_config": {
+        "backend": "xgrammar"
+      }
+    },
+    "batch_size": 16,
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.4.0",
+      "tokenizers": "0.22.2",
+      "mistral-common": "1.12.0",
+      "compressed-tensors": "0.17.0"
+    }
+  },
+  "olmo": {
+    "repo": "allenai/Olmo-3.1-32B-Instruct",
+    "revision": "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+    "context_limit": 65536,
+    "chat_template_kwargs": {
+      "tokenize": false,
+      "add_generation_prompt": true,
+      "enable_thinking": false
+    },
+    "engine": {
+      "gpu_memory_utilization": 0.9,
+      "enforce_eager": true,
+      "enable_prefix_caching": false,
+      "seed": 20261001,
+      "dtype": "bfloat16",
+      "structured_outputs_config": {
+        "backend": "xgrammar"
+      },
+      "max_num_seqs": 8,
+      "max_num_batched_tokens": 2048,
+      "quantization": "fp8_per_tensor"
+    },
+    "batch_size": 8,
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.18.0",
+      "tokenizers": "0.23.2",
+      "mistral-common": "1.12.0",
+      "compressed-tensors": "0.17.0"
+    }
+  },
+  "glm": {
+    "repo": "zai-org/GLM-4.7-Flash",
+    "revision": "7dd20894a642a0aa287e9827cb1a1f7f91386b67",
+    "context_limit": 202752,
+    "chat_template_kwargs": {
+      "tokenize": false,
+      "add_generation_prompt": true,
+      "enable_thinking": false
+    },
+    "engine": {
+      "gpu_memory_utilization": 0.9,
+      "enforce_eager": true,
+      "enable_prefix_caching": false,
+      "seed": 20261001,
+      "dtype": "bfloat16",
+      "structured_outputs_config": {
+        "backend": "xgrammar"
+      },
+      "max_num_seqs": 8,
+      "max_num_batched_tokens": 2048,
+      "quantization": "fp8_per_tensor"
+    },
+    "batch_size": 8,
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.18.0",
+      "tokenizers": "0.23.2",
+      "mistral-common": "1.12.0",
+      "compressed-tensors": "0.17.0"
+    }
+  },
+  "qwen122": {
+    "repo": "Qwen/Qwen3.5-122B-A10B-GPTQ-Int4",
+    "revision": "30cd92cba9707a9aba09d1e490ed4b66b78e9606",
+    "context_limit": 262144,
+    "chat_template_kwargs": {
+      "tokenize": false,
+      "add_generation_prompt": true,
+      "enable_thinking": false
+    },
+    "engine": {
+      "gpu_memory_utilization": 0.92,
+      "enforce_eager": true,
+      "enable_prefix_caching": false,
+      "seed": 20261001,
+      "dtype": "bfloat16",
+      "structured_outputs_config": {
+        "backend": "xgrammar"
+      },
+      "max_num_seqs": 4,
+      "max_num_batched_tokens": 2048,
+      "quantization": "gptq_marlin",
+      "limit_mm_per_prompt": {
+        "image": 0,
+        "video": 0,
+        "audio": 0
+      }
+    },
+    "batch_size": 4,
+    "versions": {
+      "vllm": "0.30.0",
+      "torch": "2.13.0",
+      "transformers": "5.18.0",
+      "tokenizers": "0.23.2",
+      "mistral-common": "1.12.0",
+      "compressed-tensors": "0.17.0"
+    }
+  },
+  "qwen": {
+    "repo": "Qwen/Qwen3.6-27B-FP8",
+    "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+    "context_limit": 32768,
+    "chat_template_kwargs": {
+      "tokenize": false,
+      "add_generation_prompt": true,
+      "enable_thinking": false
+    },
+    "engine": {
+      "gpu_memory_utilization": 0.85,
+      "max_num_seqs": 16,
+      "max_num_batched_tokens": 4096,
+      "enforce_eager": true,
+      "enable_prefix_caching": false,
+      "seed": 20261001,
+      "limit_mm_per_prompt": {
+        "image": 0,
+        "video": 0,
+        "audio": 0
+      },
+      "dtype": "bfloat16",
+      "structured_outputs_config": {
+        "backend": "xgrammar"
+      }
+    },
+    "batch_size": 16
+  },
+  "gemma": {
+    "repo": "google/gemma-4-31B-it-qat-w4a16-ct",
+    "revision": "52f3f65bc7a02d555763bc923bd1d9094898219d",
+    "context_limit": 32768,
+    "chat_template_kwargs": {
+      "tokenize": false,
+      "add_generation_prompt": true,
+      "enable_thinking": false
+    },
+    "engine": {
+      "gpu_memory_utilization": 0.85,
+      "max_num_seqs": 16,
+      "max_num_batched_tokens": 4096,
+      "enforce_eager": true,
+      "enable_prefix_caching": false,
+      "seed": 20261001,
+      "limit_mm_per_prompt": {
+        "image": 0,
+        "video": 0,
+        "audio": 0
+      },
+      "dtype": "bfloat16",
+      "structured_outputs_config": {
+        "backend": "xgrammar"
+      }
+    },
+    "batch_size": 16
+  }
+}

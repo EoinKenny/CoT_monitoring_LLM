@@ -1,0 +1,959 @@
+{
+  "version": 1,
+  "description": "Original prepared dataset records, audited split membership, and frozen native tokenization. No activations, fitted probes, scores, or retrieved neighbours.",
+  "files": {
+    "llama__wildguard.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "wildguard",
+      "rows": 39641,
+      "counts": {
+        "train:0": 23650,
+        "train:1": 6695,
+        "val:0": 5914,
+        "test:0": 1425,
+        "val:1": 1673,
+        "test:1": 284
+      },
+      "bytes": 36099961,
+      "sha256": "295b352e4cc5b94236c71a912e913dcf6bc4a0a32872ed58c4409634d72d455a",
+      "source_sha256": "41b927bbc9169c98f0591912f41f7fbfa890b11d6247b00197e4de208022abfe",
+      "asset_id": 679607995,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679607995",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__wildguard.jsonl.gz"
+    },
+    "llama__high_stakes.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "high_stakes",
+      "rows": 18078,
+      "counts": {
+        "train:0": 3999,
+        "train:1": 4000,
+        "test:0": 4092,
+        "test:1": 4093,
+        "val:0": 951,
+        "val:1": 943
+      },
+      "bytes": 7079604,
+      "sha256": "ecbb4bd1dcd0a1a72037a2668a98c2eddfff99b8372291c4d42b9cf0e80df25a",
+      "source_sha256": "1f09c43f5975dcb786fd64faf29c148f87ae9105d159c80a455796ea165209c9",
+      "asset_id": 679607389,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679607389",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__high_stakes.jsonl.gz"
+    },
+    "llama__toxicchat.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "toxicchat",
+      "rows": 9712,
+      "counts": {
+        "train:0": 3519,
+        "train:1": 273,
+        "val:0": 880,
+        "test:1": 354,
+        "test:0": 4618,
+        "val:1": 68
+      },
+      "bytes": 2039307,
+      "sha256": "a837490116bc11831f743cca525ed121dd77e96505d425276b643c0545511f04",
+      "source_sha256": "27e17146ba24aebd52baaecba2519a8bdb3d69c215026c420d6f3d879f7643a2",
+      "asset_id": 679607842,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679607842",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__toxicchat.jsonl.gz"
+    },
+    "llama__beavertails.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "beavertails",
+      "rows": 22011,
+      "counts": {
+        "train:0": 6532,
+        "train:1": 8750,
+        "val:0": 1582,
+        "val:1": 2129,
+        "test:0": 1286,
+        "test:1": 1732
+      },
+      "bytes": 11490321,
+      "sha256": "8ac5526a7f094a1a95ef56aaa15bc15d98b9b9a0d84935ba05d375647dd7df20",
+      "source_sha256": "a7827c3dc8c9eec5ba19673350801f47684c677188b6078140daff65f447b605",
+      "asset_id": 679606369,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679606369",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__beavertails.jsonl.gz"
+    },
+    "llama__aegis.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "aegis",
+      "rows": 25643,
+      "counts": {
+        "train:0": 8944,
+        "train:1": 9030,
+        "val:0": 2797,
+        "val:1": 2993,
+        "test:0": 870,
+        "test:1": 1009
+      },
+      "bytes": 12387232,
+      "sha256": "f346a6c2c322f484308d047c268b5ab3c2698948bafcc1db5ac022b6385cb4dc",
+      "source_sha256": "b9d7c7981d83e80e43be125e3080abcc416c610e75bcc30612dcecf1654bbe35",
+      "asset_id": 679606021,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679606021",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__aegis.jsonl.gz"
+    },
+    "llama__toxigen.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "toxigen",
+      "rows": 9703,
+      "counts": {
+        "train:0": 4709,
+        "train:1": 2370,
+        "val:0": 1132,
+        "val:1": 573,
+        "test:0": 557,
+        "test:1": 362
+      },
+      "bytes": 2225583,
+      "sha256": "9073b10bd216607b83ef976a85f10b0587263281ad495c7c06a22a35b9e85ac9",
+      "source_sha256": "2b7d8ae9073e52a7e53bc479543074c584bc291109c3c8b8a872d75b72cb1167",
+      "asset_id": 679607909,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679607909",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__toxigen.jsonl.gz"
+    },
+    "llama__halueval.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "halueval",
+      "rows": 20000,
+      "counts": {
+        "train:0": 6003,
+        "train:1": 6003,
+        "val:0": 2035,
+        "val:1": 2035,
+        "test:0": 1962,
+        "test:1": 1962
+      },
+      "bytes": 11738184,
+      "sha256": "03783cb72c6443af59796dea3df51266af1ef96d712f1ac0f509fc6f5452bef1",
+      "source_sha256": "f91388e2c60824844db645f4b002768b9ad83f52539efebc2a2bc990154d3821",
+      "asset_id": 679606961,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679606961",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__halueval.jsonl.gz"
+    },
+    "llama__ragtruth.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "ragtruth",
+      "rows": 17577,
+      "counts": {
+        "train:0": 7012,
+        "train:1": 4860,
+        "val:0": 1796,
+        "val:1": 1237,
+        "test:0": 1778,
+        "test:1": 894
+      },
+      "bytes": 49248210,
+      "sha256": "0bdae65bb145d18269d3e5e63c5c8ea8c56169dbc2182bcd44955ee17ad929fe",
+      "source_sha256": "24743c84aed6c3c97b4c68d998d3332b0c41494ba792d399093c0ac613b6275c",
+      "asset_id": 679607707,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679607707",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__ragtruth.jsonl.gz"
+    },
+    "llama__fava.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "fava",
+      "rows": 29903,
+      "counts": {
+        "train:0": 391,
+        "train:1": 17210,
+        "val:0": 132,
+        "val:1": 6130,
+        "test:0": 112,
+        "test:1": 5928
+      },
+      "bytes": 79511492,
+      "sha256": "7acfede41996ca47a7046ef70947bdf370efffa6825f73409da982b50635f090",
+      "source_sha256": "a2e817e25416c69f6d78404e130c9407c37ed0d7ceed24013020bba06ae8b6fd",
+      "asset_id": 679606820,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679606820",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__fava.jsonl.gz"
+    },
+    "llama__wildjailbreak.jsonl.gz": {
+      "backbone": "llama",
+      "dataset": "wildjailbreak",
+      "rows": 263740,
+      "counts": {
+        "train:0": 102644,
+        "train:1": 105957,
+        "val:0": 26109,
+        "val:1": 26820,
+        "test:0": 210,
+        "test:1": 2000
+      },
+      "bytes": 169744139,
+      "sha256": "2bedfbcb00f49dae52ac3dbe6f28da761de0baf2343d5c9881d0cf8fdd23db95",
+      "source_sha256": "7b8a4900a67180af9e40870273738527bd383cd99ea390bd60ad4fa93f237dd3",
+      "asset_id": 679608134,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679608134",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama__wildjailbreak.jsonl.gz"
+    },
+    "qwen__wildguard.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "wildguard",
+      "rows": 39641,
+      "counts": {
+        "train:0": 23650,
+        "train:1": 6695,
+        "val:0": 5914,
+        "test:0": 1425,
+        "val:1": 1673,
+        "test:1": 284
+      },
+      "bytes": 79527379,
+      "sha256": "3d9ee1afdb5275018e95d9bd7ec4af3e4c95b267c75fe9534ede2d8508689c35",
+      "source_sha256": "5768eed9ac8d96883f2dbc79a456f813cf085a8eaf27f99ec8fc3087594f410a",
+      "asset_id": 679613171,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679613171",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__wildguard.jsonl.gz"
+    },
+    "qwen__high_stakes.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "high_stakes",
+      "rows": 18078,
+      "counts": {
+        "train:0": 3999,
+        "train:1": 4000,
+        "test:0": 4092,
+        "test:1": 4093,
+        "val:0": 951,
+        "val:1": 943
+      },
+      "bytes": 16030996,
+      "sha256": "740d5d5f013b106e7c8f4772b4630b0120ca8ed3b81bca4801bf1519dda474f7",
+      "source_sha256": "73ea31f2fa47f255eb48a9216560597b094d9d857678130fd3ea4b70e1eb2ba8",
+      "asset_id": 679612432,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679612432",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__high_stakes.jsonl.gz"
+    },
+    "qwen__toxicchat.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "toxicchat",
+      "rows": 9712,
+      "counts": {
+        "train:0": 3519,
+        "train:1": 273,
+        "val:0": 880,
+        "test:1": 354,
+        "test:0": 4618,
+        "val:1": 68
+      },
+      "bytes": 3460395,
+      "sha256": "8076eec3f0c8afe30cd951069164ab163c80e1eb4aeadc5fd061a6217e7d8f6e",
+      "source_sha256": "ae5104c76d36921a9454e7c66d98e63470733e9b721a6d7e446517e26c370d6e",
+      "asset_id": 679613004,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679613004",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__toxicchat.jsonl.gz"
+    },
+    "qwen__beavertails.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "beavertails",
+      "rows": 22011,
+      "counts": {
+        "train:0": 6532,
+        "train:1": 8750,
+        "val:0": 1582,
+        "val:1": 2129,
+        "test:0": 1286,
+        "test:1": 1732
+      },
+      "bytes": 12965853,
+      "sha256": "fdf5f534d61c630f45f6f9f670fa9b40fc5627fc1e6df5a82607975abc9b6379",
+      "source_sha256": "f127cbfff5a29225fb7461f39207cf91d22c682b9ba283c62485f845b7dfce6f",
+      "asset_id": 679611569,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679611569",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__beavertails.jsonl.gz"
+    },
+    "qwen__aegis.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "aegis",
+      "rows": 25643,
+      "counts": {
+        "train:0": 8944,
+        "train:1": 9030,
+        "val:0": 2797,
+        "val:1": 2993,
+        "test:0": 870,
+        "test:1": 1009
+      },
+      "bytes": 14123087,
+      "sha256": "87563a5b3bcb83d2b10eb8c58d4f760e2907753162c1e786c6049f1b733c5dfb",
+      "source_sha256": "213059f4402d07c71beb0e066c9538fed4f5fbc72753515d404dabf9cd4e1377",
+      "asset_id": 679611511,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679611511",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__aegis.jsonl.gz"
+    },
+    "qwen__toxigen.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "toxigen",
+      "rows": 9703,
+      "counts": {
+        "train:0": 4709,
+        "train:1": 2370,
+        "val:0": 1132,
+        "val:1": 573,
+        "test:0": 557,
+        "test:1": 362
+      },
+      "bytes": 2734151,
+      "sha256": "7ee830f991cf736251aa3158ef320518bf98e7aa4f736317ecf681dfecec7263",
+      "source_sha256": "0e7d6f832b91ccd38c0b770ec7cbfaf39b631f88799bf51798754c0d0628eb21",
+      "asset_id": 679613147,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679613147",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__toxigen.jsonl.gz"
+    },
+    "qwen__halueval.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "halueval",
+      "rows": 20000,
+      "counts": {
+        "train:0": 6003,
+        "train:1": 6003,
+        "val:0": 2035,
+        "val:1": 2035,
+        "test:0": 1962,
+        "test:1": 1962
+      },
+      "bytes": 12934989,
+      "sha256": "2302032baeb09b5083b47e0bcf63721c34536309792b53735100593759245944",
+      "source_sha256": "61a8ed3f9cf5bfe692a7539f65e2a643a4a94fb30c7cb2d59d80f636ad4a2b61",
+      "asset_id": 679611932,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679611932",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__halueval.jsonl.gz"
+    },
+    "qwen__ragtruth.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "ragtruth",
+      "rows": 17577,
+      "counts": {
+        "train:0": 7012,
+        "train:1": 4860,
+        "val:0": 1796,
+        "val:1": 1237,
+        "test:0": 1778,
+        "test:1": 894
+      },
+      "bytes": 51110130,
+      "sha256": "307ce75bf1e56d74c50e786d4a5b8b5f3ce1b23b1bacef9bca976603fd85f67b",
+      "source_sha256": "9dc635c6928b8efc82c5b8101b6f615f50dc41eeb3e7d918f1f000792b75d948",
+      "asset_id": 679612467,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679612467",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__ragtruth.jsonl.gz"
+    },
+    "qwen__fava.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "fava",
+      "rows": 29903,
+      "counts": {
+        "train:0": 391,
+        "train:1": 17210,
+        "val:0": 132,
+        "val:1": 6130,
+        "test:0": 112,
+        "test:1": 5928
+      },
+      "bytes": 82046178,
+      "sha256": "0c8de33cf7e76b4eb4ce12456674fa597d2ec8a9b1e0933950abf2e062fc3b98",
+      "source_sha256": "0dff0e6e7fddd510b42d095a3a41e5ba1171ef545d2b5b5d075b9233a1ed4e12",
+      "asset_id": 679611863,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679611863",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__fava.jsonl.gz"
+    },
+    "qwen__wildjailbreak.jsonl.gz": {
+      "backbone": "qwen",
+      "dataset": "wildjailbreak",
+      "rows": 263740,
+      "counts": {
+        "train:0": 102644,
+        "train:1": 105957,
+        "val:0": 26109,
+        "val:1": 26820,
+        "test:0": 210,
+        "test:1": 2000
+      },
+      "bytes": 188824520,
+      "sha256": "4d743aa6b29282a5c406f40331f638285de7dc870ff2379f4f2d520d81395975",
+      "source_sha256": "86e3140bce0e331289bb2c35d52bf2c2907e3584276611fc3c2d603798ac9fee",
+      "asset_id": 679613242,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679613242",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen__wildjailbreak.jsonl.gz"
+    },
+    "gemma__wildguard.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "wildguard",
+      "rows": 39641,
+      "counts": {
+        "train:0": 23650,
+        "train:1": 6695,
+        "val:0": 5914,
+        "test:0": 1425,
+        "val:1": 1673,
+        "test:1": 284
+      },
+      "bytes": 81234271,
+      "sha256": "e3dccd9c651440ead51b7a646ca3391463f20c5dc56fc17f09e4e0573ccd6bc2",
+      "source_sha256": "24ccbdf381c1e812e79aa4fffde46bf4f05dcbf9fbd94681e735ea010064b514",
+      "asset_id": 679602391,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602391",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__wildguard.jsonl.gz"
+    },
+    "gemma__high_stakes.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "high_stakes",
+      "rows": 18078,
+      "counts": {
+        "train:0": 3999,
+        "train:1": 4000,
+        "test:0": 4092,
+        "test:1": 4093,
+        "val:0": 951,
+        "val:1": 943
+      },
+      "bytes": 15840402,
+      "sha256": "e52b731096425498b3edad9cd08d325cac05ddd5c52eb78fd7d8305b6e9431c5",
+      "source_sha256": "d7ae23ab705f4859f359bdc342e47484b596fa1fedc202f2e525912ffe82e4e4",
+      "asset_id": 679601874,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679601874",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__high_stakes.jsonl.gz"
+    },
+    "gemma__toxicchat.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "toxicchat",
+      "rows": 9712,
+      "counts": {
+        "train:0": 3519,
+        "train:1": 273,
+        "val:0": 880,
+        "test:1": 354,
+        "test:0": 4618,
+        "val:1": 68
+      },
+      "bytes": 3505171,
+      "sha256": "5d94bd129e1ecd71fa590eb4a31330ae79a8a7ca017f6d1275c710545e402acc",
+      "source_sha256": "0ffc7f9a6b6cfb4e0930f059fdc518f49599350d9f4931652ce5d8d8b965a70b",
+      "asset_id": 679602384,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602384",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__toxicchat.jsonl.gz"
+    },
+    "gemma__beavertails.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "beavertails",
+      "rows": 22011,
+      "counts": {
+        "train:0": 6532,
+        "train:1": 8750,
+        "val:0": 1582,
+        "val:1": 2129,
+        "test:0": 1286,
+        "test:1": 1732
+      },
+      "bytes": 13082808,
+      "sha256": "0740083143358c63d2b3c7b5c59f014fec41da7150364b3944a1e402b117a3d7",
+      "source_sha256": "03b52beb06b62f05922bb4f8b196c920d99e489b9fb7d388fd2257416ed68d61",
+      "asset_id": 679601865,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679601865",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__beavertails.jsonl.gz"
+    },
+    "gemma__aegis.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "aegis",
+      "rows": 25643,
+      "counts": {
+        "train:0": 8944,
+        "train:1": 9030,
+        "val:0": 2797,
+        "val:1": 2993,
+        "test:0": 870,
+        "test:1": 1009
+      },
+      "bytes": 14331163,
+      "sha256": "b129159d8de5a5211a326501d81b71b133e5a914030473179bd9b250cfc9b1a3",
+      "source_sha256": "bd54097ebba1c3c99bc272cba17b612829e33860e7f29ba46dad8e0175c7c9aa",
+      "asset_id": 679601870,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679601870",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__aegis.jsonl.gz"
+    },
+    "gemma__toxigen.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "toxigen",
+      "rows": 9703,
+      "counts": {
+        "train:0": 4709,
+        "train:1": 2370,
+        "val:0": 1132,
+        "val:1": 573,
+        "test:0": 557,
+        "test:1": 362
+      },
+      "bytes": 2745647,
+      "sha256": "a5f61359546ac80daa2e8dd7747c577cfbdbdeabfc4c06b5023896ef35da9c3a",
+      "source_sha256": "38447206929b65105f0e3cd17ab44ffa0333027e3fa6c64f3cc8ad0bd9b5b2d6",
+      "asset_id": 679602395,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602395",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__toxigen.jsonl.gz"
+    },
+    "gemma__halueval.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "halueval",
+      "rows": 20000,
+      "counts": {
+        "train:0": 6003,
+        "train:1": 6003,
+        "val:0": 2035,
+        "val:1": 2035,
+        "test:0": 1962,
+        "test:1": 1962
+      },
+      "bytes": 13084486,
+      "sha256": "189bce6474586edb0edef17e19555e9c28b60f083645307659973eff25788eab",
+      "source_sha256": "ba2640cc876fd33f2a9643d87f0c57637c11ef97db1a6c8f734bf518175cf816",
+      "asset_id": 679601866,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679601866",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__halueval.jsonl.gz"
+    },
+    "gemma__ragtruth.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "ragtruth",
+      "rows": 17577,
+      "counts": {
+        "train:0": 7012,
+        "train:1": 4860,
+        "val:0": 1796,
+        "val:1": 1237,
+        "test:0": 1778,
+        "test:1": 894
+      },
+      "bytes": 52519817,
+      "sha256": "2a79b032196d60a700a965519d36cd63c48494a3a2e2fb86b4bfb8382d746363",
+      "source_sha256": "73f921ba9829fbb7f5a27252b92c69e0a3457c55565d38b28276a81383bb7472",
+      "asset_id": 679602364,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602364",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__ragtruth.jsonl.gz"
+    },
+    "gemma__fava.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "fava",
+      "rows": 29903,
+      "counts": {
+        "train:0": 391,
+        "train:1": 17210,
+        "val:0": 132,
+        "val:1": 6130,
+        "test:0": 112,
+        "test:1": 5928
+      },
+      "bytes": 83060545,
+      "sha256": "374bd362e973525a7bc773042ccb5eb4d6d297a9e423cc13d65ad3190242a610",
+      "source_sha256": "bb0e3c8d8b9aea7bf6e657b22fe488ae6c55f2aed48ff67a3df99dd6d36e8051",
+      "asset_id": 679601871,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679601871",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__fava.jsonl.gz"
+    },
+    "gemma__wildjailbreak.jsonl.gz": {
+      "backbone": "gemma",
+      "dataset": "wildjailbreak",
+      "rows": 263740,
+      "counts": {
+        "train:0": 102644,
+        "train:1": 105957,
+        "val:0": 26109,
+        "val:1": 26820,
+        "test:0": 210,
+        "test:1": 2000
+      },
+      "bytes": 190953174,
+      "sha256": "b4d6756f46e52fdd0f693c136f9b2382f82bf38f83810ee5ce8b01400105c889",
+      "source_sha256": "8894a53f915405d231918dd2fa869ed4267f56b7ad56883f9c60d5c7f966de57",
+      "asset_id": 679602481,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602481",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/gemma__wildjailbreak.jsonl.gz"
+    },
+    "llama70__wildguard.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "wildguard",
+      "rows": 39641,
+      "counts": {
+        "train:0": 23650,
+        "train:1": 6695,
+        "val:0": 5914,
+        "test:0": 1425,
+        "val:1": 1673,
+        "test:1": 284
+      },
+      "bytes": 74032559,
+      "sha256": "f14c53720ae98356589002f116dee8f6b5f1f875d0c7a36291c565fccc598e4d",
+      "source_sha256": "523776b3fb998efb82d35cf6bdd6887b4adf37cebcc5dafb6b0331308d87fb6f",
+      "asset_id": 679604912,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679604912",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__wildguard.jsonl.gz"
+    },
+    "llama70__high_stakes.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "high_stakes",
+      "rows": 18078,
+      "counts": {
+        "train:0": 3999,
+        "train:1": 4000,
+        "test:0": 4092,
+        "test:1": 4093,
+        "val:0": 951,
+        "val:1": 943
+      },
+      "bytes": 13892194,
+      "sha256": "1916e1fdbf9d0011ffb92496702b376115fefbb9dd5e1b0881982ed1eddbf7fd",
+      "source_sha256": "865894b23b4b6e8cf56941e74d0059301a7f587b70f9b1e1f570849bd5a9a686",
+      "asset_id": 679604223,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679604223",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__high_stakes.jsonl.gz"
+    },
+    "llama70__toxicchat.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "toxicchat",
+      "rows": 9712,
+      "counts": {
+        "train:0": 3519,
+        "train:1": 273,
+        "val:0": 880,
+        "test:1": 354,
+        "test:0": 4618,
+        "val:1": 68
+      },
+      "bytes": 2923696,
+      "sha256": "8c66c56c9845b3f9b893f815abf3cac34950041873216747f1d72332539ae309",
+      "source_sha256": "022da7d8e7a49c0e6780b39f17334db57025c11f242a70aea085cdfa09f58b7e",
+      "asset_id": 679604664,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679604664",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__toxicchat.jsonl.gz"
+    },
+    "llama70__beavertails.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "beavertails",
+      "rows": 22011,
+      "counts": {
+        "train:0": 6532,
+        "train:1": 8750,
+        "val:0": 1582,
+        "val:1": 2129,
+        "test:0": 1286,
+        "test:1": 1732
+      },
+      "bytes": 11490321,
+      "sha256": "8ac5526a7f094a1a95ef56aaa15bc15d98b9b9a0d84935ba05d375647dd7df20",
+      "source_sha256": "279e5ba3169a237097f92254cfc902da1ca1cfe71d997370ea08b65a14af4049",
+      "asset_id": 679602799,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602799",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__beavertails.jsonl.gz"
+    },
+    "llama70__aegis.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "aegis",
+      "rows": 25643,
+      "counts": {
+        "train:0": 8944,
+        "train:1": 9030,
+        "val:0": 2797,
+        "val:1": 2993,
+        "test:0": 870,
+        "test:1": 1009
+      },
+      "bytes": 12387232,
+      "sha256": "f346a6c2c322f484308d047c268b5ab3c2698948bafcc1db5ac022b6385cb4dc",
+      "source_sha256": "06a8e0f242c8a60aa66e5bda5ccf9b9ee9cb2f22b3f3d6b57db527b082c8ef16",
+      "asset_id": 679602485,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679602485",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__aegis.jsonl.gz"
+    },
+    "llama70__toxigen.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "toxigen",
+      "rows": 9703,
+      "counts": {
+        "train:0": 4709,
+        "train:1": 2370,
+        "val:0": 1132,
+        "val:1": 573,
+        "test:0": 557,
+        "test:1": 362
+      },
+      "bytes": 2225583,
+      "sha256": "9073b10bd216607b83ef976a85f10b0587263281ad495c7c06a22a35b9e85ac9",
+      "source_sha256": "d37ee03ebed201409b6ae6454cd88abb18bc591dbad2dbb4c1da4f74599a84fb",
+      "asset_id": 679604760,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679604760",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__toxigen.jsonl.gz"
+    },
+    "llama70__halueval.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "halueval",
+      "rows": 20000,
+      "counts": {
+        "train:0": 6003,
+        "train:1": 6003,
+        "val:0": 2035,
+        "val:1": 2035,
+        "test:0": 1962,
+        "test:1": 1962
+      },
+      "bytes": 11738184,
+      "sha256": "03783cb72c6443af59796dea3df51266af1ef96d712f1ac0f509fc6f5452bef1",
+      "source_sha256": "da0cf3c44a565dbbea30e8c1ba850f94cce3134048fb064f83f3181cb05fac45",
+      "asset_id": 679603861,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679603861",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__halueval.jsonl.gz"
+    },
+    "llama70__ragtruth.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "ragtruth",
+      "rows": 17577,
+      "counts": {
+        "train:0": 7012,
+        "train:1": 4860,
+        "val:0": 1796,
+        "val:1": 1237,
+        "test:0": 1778,
+        "test:1": 894
+      },
+      "bytes": 49248210,
+      "sha256": "0bdae65bb145d18269d3e5e63c5c8ea8c56169dbc2182bcd44955ee17ad929fe",
+      "source_sha256": "6173c67665e4b8cb771272e4c818a239cac9f854bd3a4f83ed9753d552b99375",
+      "asset_id": 679604665,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679604665",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__ragtruth.jsonl.gz"
+    },
+    "llama70__fava.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "fava",
+      "rows": 29903,
+      "counts": {
+        "train:0": 391,
+        "train:1": 17210,
+        "val:0": 132,
+        "val:1": 6130,
+        "test:0": 112,
+        "test:1": 5928
+      },
+      "bytes": 79511492,
+      "sha256": "7acfede41996ca47a7046ef70947bdf370efffa6825f73409da982b50635f090",
+      "source_sha256": "fa9b1ff16b9c036341c7e52b6995c0dff1008b0c4452adf30b11a0efd3e5e036",
+      "asset_id": 679603198,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679603198",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__fava.jsonl.gz"
+    },
+    "llama70__wildjailbreak.jsonl.gz": {
+      "backbone": "llama70",
+      "dataset": "wildjailbreak",
+      "rows": 263740,
+      "counts": {
+        "train:0": 102644,
+        "train:1": 105957,
+        "val:0": 26109,
+        "val:1": 26820,
+        "test:0": 210,
+        "test:1": 2000
+      },
+      "bytes": 169744139,
+      "sha256": "2bedfbcb00f49dae52ac3dbe6f28da761de0baf2343d5c9881d0cf8fdd23db95",
+      "source_sha256": "84df48f11321eaf538dbb5e8ee53f50c905ed8d11a63845c05c268535fcb9aab",
+      "asset_id": 679605483,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679605483",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/llama70__wildjailbreak.jsonl.gz"
+    },
+    "qwen122__wildguard.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "wildguard",
+      "rows": 39641,
+      "counts": {
+        "train:0": 23650,
+        "train:1": 6695,
+        "val:0": 5914,
+        "test:0": 1425,
+        "val:1": 1673,
+        "test:1": 284
+      },
+      "bytes": 76587866,
+      "sha256": "e3ab2df19c50b2214d8fcb3d44cf6b9168f9ef980f887679172a01624dd817d1",
+      "source_sha256": "c1c935517728bf9ef924c44d32e9db9f408747199ac8fc1f7a42b673081a32c1",
+      "asset_id": 679610291,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679610291",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__wildguard.jsonl.gz"
+    },
+    "qwen122__high_stakes.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "high_stakes",
+      "rows": 18078,
+      "counts": {
+        "train:0": 3999,
+        "train:1": 4000,
+        "test:0": 4092,
+        "test:1": 4093,
+        "val:0": 951,
+        "val:1": 943
+      },
+      "bytes": 15060350,
+      "sha256": "2713c6b40756e3f410684c08ad9f22f40aa4d695836b39fc889641422ab98f5d",
+      "source_sha256": "ce72949e6421805620aa8075bda072c20bda070754c18e983b11f262c7148c6d",
+      "asset_id": 679609545,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679609545",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__high_stakes.jsonl.gz"
+    },
+    "qwen122__toxicchat.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "toxicchat",
+      "rows": 9712,
+      "counts": {
+        "train:0": 3519,
+        "train:1": 273,
+        "val:0": 880,
+        "test:1": 354,
+        "test:0": 4618,
+        "val:1": 68
+      },
+      "bytes": 3375163,
+      "sha256": "4bde2b1770c84b3daae1a67cc45891f268e67565795645c774f8aeb402a85281",
+      "source_sha256": "d277a04364373fbce95b6872eb0f34428e3c9b3c85426f19b362fb54220123fa",
+      "asset_id": 679610139,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679610139",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__toxicchat.jsonl.gz"
+    },
+    "qwen122__beavertails.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "beavertails",
+      "rows": 22011,
+      "counts": {
+        "train:0": 6532,
+        "train:1": 8750,
+        "val:0": 1582,
+        "val:1": 2129,
+        "test:0": 1286,
+        "test:1": 1732
+      },
+      "bytes": 12663082,
+      "sha256": "e951a8470cebfe819e5aed6f0f3166ad592eb5f6fa7297a5e39b49ca2df573d1",
+      "source_sha256": "f47dca1c4a0eff4249eff6e4d06622f5eae94b31808cef5df39e92c6b7f38da9",
+      "asset_id": 679609019,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679609019",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__beavertails.jsonl.gz"
+    },
+    "qwen122__aegis.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "aegis",
+      "rows": 25643,
+      "counts": {
+        "train:0": 8944,
+        "train:1": 9030,
+        "val:0": 2797,
+        "val:1": 2993,
+        "test:0": 870,
+        "test:1": 1009
+      },
+      "bytes": 13626268,
+      "sha256": "3f1172171ec4b478100705640d5c84eae852d0abffdcad4d197d3471fc7b0c0d",
+      "source_sha256": "65e8ee43c211f67ed225594d4befc8a22c1c85c8419efd2cc75a9744edb3f9be",
+      "asset_id": 679609018,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679609018",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__aegis.jsonl.gz"
+    },
+    "qwen122__toxigen.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "toxigen",
+      "rows": 9703,
+      "counts": {
+        "train:0": 4709,
+        "train:1": 2370,
+        "val:0": 1132,
+        "val:1": 573,
+        "test:0": 557,
+        "test:1": 362
+      },
+      "bytes": 2668589,
+      "sha256": "69d5331ee62f62d5db7e33b416fe35dbbb3660ae401c32136be31302e25df9fd",
+      "source_sha256": "d66b1efbc83eb55e089691e9bfdf4dddfe77e6b1c1c9df2ab6fc28b663f6e746",
+      "asset_id": 679610208,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679610208",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__toxigen.jsonl.gz"
+    },
+    "qwen122__halueval.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "halueval",
+      "rows": 20000,
+      "counts": {
+        "train:0": 6003,
+        "train:1": 6003,
+        "val:0": 2035,
+        "val:1": 2035,
+        "test:0": 1962,
+        "test:1": 1962
+      },
+      "bytes": 12822669,
+      "sha256": "33f571d070ba0379aa8ca339c7beb51d69d88aaf5a58763f2f57054616945139",
+      "source_sha256": "385c282daca125729b53a87f98559518da09a2065b7a87f5e41038306e6105dd",
+      "asset_id": 679609544,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679609544",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__halueval.jsonl.gz"
+    },
+    "qwen122__ragtruth.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "ragtruth",
+      "rows": 17577,
+      "counts": {
+        "train:0": 7012,
+        "train:1": 4860,
+        "val:0": 1796,
+        "val:1": 1237,
+        "test:0": 1778,
+        "test:1": 894
+      },
+      "bytes": 50469835,
+      "sha256": "5c637d90785fc23afdc8920dff93d40d5f86b3883b8592108323a9bb1f4b1722",
+      "source_sha256": "6434963c915a5e14fdd528641e4e12d929a670fb4f6a544b5243fdb2aad8c71a",
+      "asset_id": 679610079,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679610079",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__ragtruth.jsonl.gz"
+    },
+    "qwen122__fava.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "fava",
+      "rows": 29903,
+      "counts": {
+        "train:0": 391,
+        "train:1": 17210,
+        "val:0": 132,
+        "val:1": 6130,
+        "test:0": 112,
+        "test:1": 5928
+      },
+      "bytes": 81497882,
+      "sha256": "a62ad1ca65fbde39f0cb28dc36d938407c138fd13e732bc1d53b64b8767f3539",
+      "source_sha256": "421dcfd6414f1dd79768419d6e0f83e19ac5fa3c1e0c4288307fd028c58336de",
+      "asset_id": 679609069,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679609069",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__fava.jsonl.gz"
+    },
+    "qwen122__wildjailbreak.jsonl.gz": {
+      "backbone": "qwen122",
+      "dataset": "wildjailbreak",
+      "rows": 263740,
+      "counts": {
+        "train:0": 102644,
+        "train:1": 105957,
+        "val:0": 26109,
+        "val:1": 26820,
+        "test:0": 210,
+        "test:1": 2000
+      },
+      "bytes": 182768478,
+      "sha256": "12d848a6ac2082d4d369663de49eb8fa383d4e4b68cc44422281c08956957176",
+      "source_sha256": "a327b4704497e5786417c73f76cef4ca1d2ca0022b7f6533c98ab04737f88088",
+      "asset_id": 679610317,
+      "api_url": "https://api.github.com/repos/EoinKenny/CoT_monitoring_XAI/releases/assets/679610317",
+      "url": "https://github.com/EoinKenny/CoT_monitoring_XAI/releases/download/untagged-f24cafd799bed30958cc/qwen122__wildjailbreak.jsonl.gz"
+    }
+  },
+  "repository": "EoinKenny/CoT_monitoring_XAI",
+  "release_tag": "rebuild-inputs-2026-10-26",
+  "release_id": 424813226
+}

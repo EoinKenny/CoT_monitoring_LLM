@@ -28,7 +28,31 @@ To rebuild the statistics from per-example scores and labels too:
 python reproduce_results.py --recompute --out outputs/recomputed
 ```
 
-## Optional: collect new model responses
+## Rebuild the open-source data
+
+On a Linux GPU machine with Python 3.12 and access to the gated Hugging Face
+models, run:
+
+```bash
+python3.12 reproduce_open_source.py
+```
+
+This installs isolated environments, downloads the original dataset records and
+pinned models, **recomputes activations, retrains probes, rebuilds neighbours**,
+and collects all six local judges. It includes 1-NN/2-NN, ablations, mechanism
+labels and both explanation orders. No API calls. Re-run the same command to
+resume; attempted judge calls are never silently repeated.
+
+Full grid: **96 GiB NVIDIA GPU, 128+ GiB RAM, roughly 1 TB free storage**, and
+multiple days. A small end-to-end check:
+
+```bash
+python3.12 reproduce_open_source.py --smoke --backbones llama --judges gemma --trace-judge gemma --datasets toxicchat --out outputs/smoke
+```
+
+[Setup, outputs and exact scope](docs/OPEN_SOURCE_REBUILD.md).
+
+## Optional: query existing prompts through an endpoint
 
 Configure your local model server or API endpoints in a copy of
 [`configs/collection.example.json`](configs/collection.example.json), then:

@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-26",
+  "hardware": "NVIDIA RTX PRO 6000 Blackwell Server Edition, 96 GiB",
+  "backbone_smokes": [
+    {
+      "backbone": "llama",
+      "dataset": "toxicchat",
+      "records": 48,
+      "held_out_cases": 8,
+      "packages": {
+        "torch": "2.9.0+cu128",
+        "transformers": "5.9.0",
+        "numpy": "1.26.4",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "safetensors": "0.4.5"
+      },
+      "verified": true
+    },
+    {
+      "backbone": "qwen",
+      "dataset": "toxicchat",
+      "records": 48,
+      "held_out_cases": 8,
+      "packages": {
+        "torch": "2.9.0+cu128",
+        "transformers": "5.9.0",
+        "numpy": "1.26.4",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "safetensors": "0.4.5"
+      },
+      "verified": true
+    },
+    {
+      "backbone": "gemma",
+      "dataset": "toxicchat",
+      "records": 48,
+      "held_out_cases": 8,
+      "packages": {
+        "torch": "2.9.0+cu128",
+        "transformers": "5.9.0",
+        "numpy": "1.26.4",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "safetensors": "0.4.5"
+      },
+      "verified": true
+    },
+    {
+      "backbone": "llama70",
+      "dataset": "toxicchat",
+      "records": 48,
+      "held_out_cases": 8,
+      "packages": {
+        "torch": "2.9.0+cu128",
+        "transformers": "5.9.0",
+        "numpy": "1.26.4",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "safetensors": "0.4.5"
+      },
+      "verified": true
+    },
+    {
+      "backbone": "qwen122",
+      "dataset": "toxicchat",
+      "records": 48,
+      "held_out_cases": 8,
+      "packages": {
+        "torch": "2.13.0",
+        "transformers": "5.18.0",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "scikit-learn": "1.8.0",
+        "safetensors": "0.8.0"
+      },
+      "verified": true
+    }
+  ],
+  "tokenization": {
+    "cells": 50,
+    "records": 2400,
+    "passed": true
+  },
+  "judge_smoke": {
+    "judge": "gemma",
+    "backbone": "llama",
+    "dataset": "toxicchat",
+    "result": {
+      "attempted": 92,
+      "unattempted": 0,
+      "valid": 92,
+      "invalid": 0,
+      "ambiguous": 0,
+      "smoke": true,
+      "coverage_sha256": "4baf7d42eafa3f862b86de0e1c875c2ecc4ccab12e760bcebb784df2ecdf288f"
+    },
+    "cells": [
+      {
+        "judge": "gemma",
+        "study": "ablation",
+        "expected": 56,
+        "attempted": 56,
+        "missing": 0,
+        "status_counts": {
+          "valid": 56
+        }
+      },
+      {
+        "judge": "gemma",
+        "study": "main",
+        "expected": 24,
+        "attempted": 24,
+        "missing": 0,
+        "status_counts": {
+          "valid": 24
+        }
+      },
+      {
+        "judge": "gemma",
+        "study": "mechanism",
+        "expected": 4,
+        "attempted": 4,
+        "missing": 0,
+        "status_counts": {
+          "valid": 4
+        }
+      },
+      {
+        "judge": "gemma",
+        "study": "reason_after",
+        "expected": 0,
+        "attempted": 0,
+        "missing": 0,
+        "status_counts": {}
+      },
+      {
+        "judge": "gemma",
+        "study": "reason_first",
+        "expected": 0,
+        "attempted": 0,
+        "missing": 0,
+        "status_counts": {}
+      },
+      {
+        "judge": "gemma",
+        "study": "trace_labels",
+        "expected": 0,
+        "attempted": 0,
+        "missing": 0,
+        "status_counts": {}
+      },
+      {
+        "judge": "gemma",
+        "study": "two_nn",
+        "expected": 8,
+        "attempted": 8,
+        "missing": 0,
+        "status_counts": {
+          "valid": 8
+        }
+      }
+    ],
+    "resume_loaded_no_models": true
+  },
+  "scope": "Small actual GPU smokes, not a full collection. The other five judge engines were not rerun in this test. The tiny end-to-end sample had no control/NN flips, so reasoning and trace GPU calls were not exercised.",
+  "unit_tests": {
+    "passed": 16,
+    "includes": [
+      "training-only fitting",
+      "split isolation",
+      "retrieval ties",
+      "sampling weights",
+      "prompt privacy",
+      "no-repeat dispatch/raw recovery",
+      "judge-specific flip selection"
+    ]
+  },
+  "release_inputs": {
+    "files": 50,
+    "bytes": 2194412987,
+    "github_digests_verified": true,
+    "fresh_single_asset_download_verified": true
+  }
+}
